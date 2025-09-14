@@ -10,10 +10,10 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <link rel="canonical" href="https://qortexmq.dev/" />
-    <link rel="alternate" hreflang="ru" href="https://qortexmq.dev/" />
-    <link rel="alternate" hreflang="en" href="https://qortexmq.dev/en/" />
-    <link rel="alternate" hreflang="x-default" href="https://qortexmq.dev/" />
+    <link rel="canonical" href="https://qortexmq.github.io/" />
+    <link rel="alternate" hreflang="ru" href="https://qortexmq.github.io/" />
+    <link rel="alternate" hreflang="en" href="https://qortexmq.github.io/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://qortexmq.github.io/" />
     <meta name="language" content="Russian" />
     <meta name="geo.region" content="RU" />
     <meta name="geo.placename" content="Russia" />
@@ -24,15 +24,15 @@
     <meta property="og:site_name" content="QortexMQ" />
     <meta property="og:title" content="QortexMQ — Высокопроизводительный брокер сообщений | .NET SDK" />
     <meta property="og:description" content="Современный высокопроизводительный брокер сообщений с поддержкой .NET SDK. Быстрая и надежная альтернатива Kafka и RabbitMQ. Скачать бесплатно." />
-    <meta property="og:url" content="https://qortexmq.dev/" />
-    <meta property="og:image" content="https://qortexmq.dev/assets/img/og-image.png" />
+    <meta property="og:url" content="https://qortexmq.github.io/" />
+    <meta property="og:image" content="https://qortexmq.github.io/assets/img/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="QortexMQ - Высокопроизводительный брокер сообщений" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="QortexMQ — Высокопроизводительный брокер сообщений | .NET SDK" />
     <meta name="twitter:description" content="Современный высокопроизводительный брокер сообщений с поддержкой .NET SDK. Быстрая и надежная альтернатива Kafka и RabbitMQ. Скачать бесплатно." />
-    <meta name="twitter:image" content="https://qortexmq.dev/assets/img/og-image.png" />
+    <meta name="twitter:image" content="https://qortexmq.github.io/assets/img/og-image.png" />
     <meta name="twitter:image:alt" content="QortexMQ - Высокопроизводительный брокер сообщений" />
     <!-- Verification placeholders -->
     <meta name="google-site-verification" content="REPLACE_GOOGLE_VERIFICATION" />
@@ -50,11 +50,11 @@
       "applicationCategory": "MessageBroker",
       "operatingSystem": "Linux, macOS, Windows",
       "description": "Высокопроизводительный брокер сообщений с поддержкой .NET SDK. Современная альтернатива Kafka и RabbitMQ для микросервисов и реального времени.",
-      "url": "https://qortexmq.dev/",
+      "url": "https://qortexmq.github.io/",
       "publisher": {
         "@type": "Organization", 
         "name": "QortexMQ",
-        "url": "https://qortexmq.dev"
+        "url": "https://qortexmq.github.io"
       },
       "offers": {
         "@type": "Offer",
@@ -141,7 +141,8 @@
               </div>
             </div>
               <div class="terminal-body">
-                <div><span class="prompt">$</span> docker run -d --name qortexmq-server -p 9090:9090 -p 9080:9080 qortexmq-server</div>
+                <div><span class="prompt">$</span> docker run -d --name qortexmq-server</div>
+                <div><span class="prompt"></span> -p 9090:9090 -p 9080:9080 qortexmq-server</div>
                 <div><span class="prompt">$</span> # Открыть http://127.0.0.1:9080</div>
                 <div><span class="prompt">$</span> dotnet add package QortexMQ.Client</div>
                 <div><span class="prompt">$</span> # Использовать QortexMQ.Client</div>

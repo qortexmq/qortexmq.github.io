@@ -195,7 +195,7 @@
 
 function registerSW() {
   if ('serviceWorker' in navigator) {
-    if (location.hostname === 'qortexmq.dev') {
+    if (location.hostname === 'qortexmq.github.io') {
       navigator.serviceWorker.register('/sw.js').catch(() => {});
     } else {
       // In development, ensure no SW remains registered

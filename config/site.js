@@ -3,10 +3,10 @@
 
 const SITE_CONFIG = {
   // Основной домен сайта
-  domain: "qortexmq.dev",
+  domain: "qortexmq.github.io",
   
   // Полный URL сайта (с протоколом)
-  baseUrl: "https://qortexmq.dev",
+  baseUrl: "https://qortexmq.github.io",
   
   // Настройки путей
   paths: {

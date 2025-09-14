@@ -10,7 +10,7 @@ Disallow: /DOCKER_RUN_GUIDE.md
 Disallow: /README-PUBLISH.md
 
 # Sitemaps
-Sitemap: https://qortexmq.dev/sitemap.xml
+Sitemap: https://qortexmq.github.io/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
