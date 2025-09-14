@@ -1,1 +1,0 @@
-# qortexmq.github.io
