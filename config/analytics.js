@@ -10,7 +10,7 @@ const ANALYTICS = {
   
   // Yandex.Metrika
   yandex: {
-    id: "REPLACE_YM_ID", // Замените на ваш Yandex.Metrika ID
+    id: "104149075", // ID Яндекс.Метрики
     enabled: true
   }
 };
