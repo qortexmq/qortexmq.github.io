@@ -1,0 +1,92 @@
+{
+  "site": {
+    "name": "QortexMQ",
+    "description": "Высокопроизводительный брокер сообщений с поддержкой .NET SDK",
+    "url": "https://qortexmq.github.io",
+    "language": "ru-RU",
+    "alternate_language": "en-US"
+  },
+  "keywords": {
+    "primary": [
+      "QortexMQ",
+      "брокер сообщений",
+      "message broker",
+      ".NET SDK",
+      "C# клиент",
+      "очереди сообщений"
+    ],
+    "secondary": [
+      "Kafka альтернатива",
+      "RabbitMQ альтернатива",
+      "event streaming",
+      "pub/sub",
+      "микросервисы",
+      "высокопроизводительный",
+      "кластерная поддержка",
+      "Docker",
+      "Kubernetes"
+    ],
+    "technical": [
+      "TCP оптимизации",
+      "Keep-Alive",
+      "No-Delay",
+      "асинхронная обработка",
+      "многопоточность",
+      "Dependency Injection",
+      "структурированное логирование"
+    ]
+  },
+  "pages": {
+    "main": {
+      "priority": 1.0,
+      "changefreq": "weekly",
+      "keywords": ["QortexMQ", "брокер сообщений", ".NET SDK", "C# клиент"]
+    },
+    "docs-server": {
+      "priority": 0.9,
+      "changefreq": "weekly",
+      "keywords": ["QortexMQ сервер", "установка", "Docker", "конфигурация"]
+    },
+    "docs-sdk": {
+      "priority": 0.8,
+      "changefreq": "weekly",
+      "keywords": ["QortexMQ.Client", ".NET SDK", "C# клиент", "API"]
+    },
+    "quickstart": {
+      "priority": 0.9,
+      "changefreq": "weekly",
+      "keywords": ["быстрый старт", "quick start", "установка", "примеры"]
+    },
+    "downloads": {
+      "priority": 0.8,
+      "changefreq": "weekly",
+      "keywords": ["скачать", "download", "дистрибутивы", "Docker Hub"]
+    }
+  },
+  "social": {
+    "twitter": "@qortexmq",
+    "github": "qortexmq/QortexMQ",
+    "linkedin": "qortexmq"
+  },
+  "analytics": {
+    "google_analytics": "REPLACE_GA_ID",
+    "yandex_metrika": "REPLACE_YM_ID"
+  },
+  "structured_data": {
+    "organization": {
+      "@type": "Organization",
+      "name": "QortexMQ",
+      "url": "https://qortexmq.github.io",
+      "logo": "https://qortexmq.github.io/assets/img/logo-dark.svg",
+      "description": "Высокопроизводительный брокер сообщений с поддержкой .NET SDK"
+    },
+    "software": {
+      "@type": "SoftwareApplication",
+      "name": "QortexMQ Server",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Windows, Linux, macOS",
+      "programmingLanguage": "C#",
+      "runtimePlatform": ".NET 8.0"
+    }
+  }
+}

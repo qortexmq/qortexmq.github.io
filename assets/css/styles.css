@@ -859,4 +859,94 @@ label { display: block; margin-bottom: 4px; font-weight: 600; font-size: 0.9rem;
   }
 }
 
+/* Быстрые ссылки */
+.quick-link-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.quick-link-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.quick-link-card h3 {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  color: var(--accent);
+}
+
+.quick-link-card p {
+  margin: 0 0 16px 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.quick-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quick-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.quick-link:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  transform: translateX(4px);
+}
+
+.quick-link:before {
+  content: "→";
+  margin-right: 8px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.quick-link:hover:before {
+  opacity: 1;
+}
+
+/* Адаптивность для быстрых ссылок */
+@media (max-width: 768px) {
+  .quick-link-card {
+    padding: 20px;
+  }
+  
+  .quick-link-card h3 {
+    font-size: 16px;
+  }
+  
+  .quick-link {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quick-link-card {
+    padding: 16px;
+  }
+  
+  .quick-links {
+    gap: 6px;
+  }
+}
+
 

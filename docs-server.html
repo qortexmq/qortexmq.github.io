@@ -93,10 +93,23 @@
       <div class="container">
         <!-- Хлебные крошки -->
         <nav class="breadcrumbs" aria-label="Навигация по сайту">
-          <ol>
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="quickstart.html">Документация</a></li>
-            <li aria-current="page">Сервер</li>
+          <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <a href="index.html" itemprop="item">
+                <span itemprop="name">Главная</span>
+              </a>
+              <meta itemprop="position" content="1" />
+            </li>
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <a href="quickstart.html" itemprop="item">
+                <span itemprop="name">Документация</span>
+              </a>
+              <meta itemprop="position" content="2" />
+            </li>
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+              <span itemprop="name">Сервер</span>
+              <meta itemprop="position" content="3" />
+            </li>
           </ol>
         </nav>
 
@@ -107,6 +120,45 @@
             <a href="quickstart.html" class="cta">← Все разделы</a>
             <a href="docs-server.html" class="cta" style="background: transparent; border: 2px solid var(--accent); color: var(--accent);">🐳 Сервер</a>
             <a href="docs-sdk.html" class="cta">📦 QortexMQ.Client</a>
+          </div>
+        </div>
+
+        <!-- Быстрые ссылки для сервера -->
+        <div class="card reveal" style="background: var(--bg-secondary);">
+          <h2>🚀 Быстрый доступ</h2>
+          <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;">
+            <div class="quick-link-card">
+              <h3>📥 Установка</h3>
+              <div class="quick-links">
+                <a href="#native-distributions" class="quick-link">Нативные дистрибутивы</a>
+                <a href="#docker-file" class="quick-link">Docker из файла</a>
+                <a href="#docker-hub" class="quick-link">Docker Hub</a>
+              </div>
+            </div>
+            <div class="quick-link-card">
+              <h3>⚙️ Настройка</h3>
+              <div class="quick-links">
+                <a href="#configuration" class="quick-link">Переменные окружения</a>
+                <a href="#quick-start" class="quick-link">Быстрый старт</a>
+                <a href="#verification" class="quick-link">Проверка работы</a>
+              </div>
+            </div>
+            <div class="quick-link-card">
+              <h3>🎛️ Управление</h3>
+              <div class="quick-links">
+                <a href="#management" class="quick-link">Управление контейнером</a>
+                <a href="#troubleshooting" class="quick-link">Решение проблем</a>
+                <a href="downloads.html" class="quick-link">Загрузки</a>
+              </div>
+            </div>
+            <div class="quick-link-card">
+              <h3>📚 Ресурсы</h3>
+              <div class="quick-links">
+                <a href="docs-sdk.html" class="quick-link">QortexMQ.Client</a>
+                <a href="quickstart.html" class="quick-link">Быстрый старт</a>
+                <a href="license.html" class="quick-link">Лицензия</a>
+              </div>
+            </div>
           </div>
         </div>
 

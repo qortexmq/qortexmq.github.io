@@ -93,10 +93,23 @@
       <div class="container">
         <!-- Breadcrumbs -->
         <nav class="breadcrumbs" aria-label="Site navigation">
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="quickstart.html">Documentation</a></li>
-            <li aria-current="page">Server</li>
+          <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <a href="index.html" itemprop="item">
+                <span itemprop="name">Home</span>
+              </a>
+              <meta itemprop="position" content="1" />
+            </li>
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <a href="quickstart.html" itemprop="item">
+                <span itemprop="name">Documentation</span>
+              </a>
+              <meta itemprop="position" content="2" />
+            </li>
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+              <span itemprop="name">Server</span>
+              <meta itemprop="position" content="3" />
+            </li>
           </ol>
         </nav>
 
@@ -107,6 +120,45 @@
             <a href="quickstart.html" class="cta">← All Sections</a>
             <a href="docs-server.html" class="cta" style="background: transparent; border: 2px solid var(--accent); color: var(--accent);">🐳 Server</a>
             <a href="docs-sdk.html" class="cta">📦 QortexMQ.Client</a>
+          </div>
+        </div>
+
+        <!-- Quick links for server -->
+        <div class="card reveal" style="background: var(--bg-secondary);">
+          <h2>🚀 Quick Access</h2>
+          <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;">
+            <div class="quick-link-card">
+              <h3>📥 Installation</h3>
+              <div class="quick-links">
+                <a href="#native-distributions" class="quick-link">Native distributions</a>
+                <a href="#docker-file" class="quick-link">Docker from file</a>
+                <a href="#docker-hub" class="quick-link">Docker Hub</a>
+              </div>
+            </div>
+            <div class="quick-link-card">
+              <h3>⚙️ Configuration</h3>
+              <div class="quick-links">
+                <a href="#configuration" class="quick-link">Environment variables</a>
+                <a href="#quick-start" class="quick-link">Quick start</a>
+                <a href="#verification" class="quick-link">Verification</a>
+              </div>
+            </div>
+            <div class="quick-link-card">
+              <h3>🎛️ Management</h3>
+              <div class="quick-links">
+                <a href="#management" class="quick-link">Container management</a>
+                <a href="#troubleshooting" class="quick-link">Problem solving</a>
+                <a href="downloads.html" class="quick-link">Downloads</a>
+              </div>
+            </div>
+            <div class="quick-link-card">
+              <h3>📚 Resources</h3>
+              <div class="quick-links">
+                <a href="docs-sdk.html" class="quick-link">QortexMQ.Client</a>
+                <a href="quickstart.html" class="quick-link">Quick start</a>
+                <a href="license.html" class="quick-link">License</a>
+              </div>
+            </div>
           </div>
         </div>
 

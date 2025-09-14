@@ -9,10 +9,25 @@ Disallow: /*.md
 Disallow: /DOCKER_RUN_GUIDE.md
 Disallow: /README-PUBLISH.md
 
+# Allow important pages for better SEO
+Allow: /docs-server.html
+Allow: /docs-sdk.html
+Allow: /quickstart.html
+Allow: /downloads.html
+Allow: /license.html
+Allow: /en/docs-server.html
+Allow: /en/docs-sdk.html
+Allow: /en/quickstart.html
+Allow: /en/downloads.html
+Allow: /en/license.html
+
 # Sitemaps
 Sitemap: https://qortexmq.github.io/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
+
+# Additional SEO directives
+Host: qortexmq.github.io
 
 
