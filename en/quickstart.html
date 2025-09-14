@@ -158,8 +158,8 @@
               <div>// Subscribe to topic with handler</div>
               <div>await client.SubscribeAsync&lt;string&gt;("orders", async (message) =></div>
               <div>{</div>
-              <div>    Console.WriteLine($"Received order: {message}");</div>
-              <div>    await Task.Delay(100); // Processing</div>
+              <div class="indent-4">    Console.WriteLine($"Received order: {message}");</div>
+              <div class="indent-4">    await Task.Delay(100); // Processing</div>
               <div>}, maxHandlers: 1); // 1 parallel handler</div>
             </div>
           </div>

@@ -365,11 +365,11 @@
               <div>  </div>
               <div>// Создание клиента с помощью Builder Pattern</div>
               <div>await using var client = QortexMqClientFactory.CreateBuilder()</div>
-              <div>    .WithServerAddress("127.0.0.1")</div>
-              <div>    .WithServerPort(9090)</div>
-              <div>    .WithReconnectionDelay(3000)</div>
-              <div>    .WithMaxReconnectionAttempts(10)</div>
-              <div>    .WithAutoReconnection(true)</div>
+              <div class="indent-4">    .WithServerAddress("127.0.0.1")</div>
+              <div class="indent-4">    .WithServerPort(9090)</div>
+              <div class="indent-4">    .WithReconnectionDelay(3000)</div>
+              <div class="indent-4">    .WithMaxReconnectionAttempts(10)</div>
+              <div class="indent-4">    .WithAutoReconnection(true)</div>
               <div>    .Build();</div>
               <div>  </div>
               <div>await client.ConnectAsync();</div>
@@ -392,17 +392,17 @@
             <div class="terminal-body" id="appsettings-code">
               <div>{</div>
               <div>  "Logging": {</div>
-              <div>    "LogLevel": {</div>
-              <div>      "Default": "Information",</div>
-              <div>      "QortexMQ": "Debug"</div>
-              <div>    }</div>
+              <div class="indent-4">    "LogLevel": {</div>
+              <div class="indent-8">      "Default": "Information",</div>
+              <div class="indent-8">      "QortexMQ": "Debug"</div>
+              <div class="indent-4">    }</div>
               <div>  },</div>
               <div>  "QortexMQ": {</div>
-              <div>    "ServerAddress": "localhost",</div>
-              <div>    "ServerPort": 9090,</div>
-              <div>    "MaxReconnectionAttempts": 0,</div>
-              <div>    "EnableAutoReconnection": true</div>
-              <div>  }</div>
+              <div class="indent-4">    "ServerAddress": "localhost",</div>
+              <div class="indent-4">    "ServerPort": 9090,</div>
+              <div class="indent-4">    "MaxReconnectionAttempts": 0,</div>
+              <div class="indent-4">    "EnableAutoReconnection": true</div>
+              <div class="indent-4">  }</div>
               <div>}</div>
             </div>
           </div>
@@ -427,14 +427,14 @@
               <div>using QortexMQ.DependencyInjection;</div>
               <div>  </div>
               <div>var host = Host.CreateDefaultBuilder()</div>
-              <div>    .ConfigureAppConfiguration((context, config) =></div>
-              <div>    {</div>
-              <div>        config.AddJsonFile("appsettings.example.json", optional: false);</div>
-              <div>    })</div>
-              <div>    .ConfigureServices((context, services) =></div>
-              <div>    {</div>
-              <div>        // Регистрация из конфигурации</div>
-              <div>        services.AddQortexMqClient(context.Configuration);</div>
+              <div class="indent-4">    .ConfigureAppConfiguration((context, config) =></div>
+              <div class="indent-4">    {</div>
+              <div class="indent-8">        config.AddJsonFile("appsettings.example.json", optional: false);</div>
+              <div class="indent-4">    })</div>
+              <div class="indent-4">    .ConfigureServices((context, services) =></div>
+              <div class="indent-4">    {</div>
+              <div class="indent-8">        // Регистрация из конфигурации</div>
+              <div class="indent-8">        services.AddQortexMqClient(context.Configuration);</div>
               <div>    })</div>
               <div>    .Build();</div>
             </div>
@@ -840,11 +840,11 @@
               <div>  </div>
               <div>// И правильно зарегистрировали сервис</div>
               <div>services.AddQortexMqClient(config =></div>
-              <div>{</div>
-              <div>    config.ServerAddress = "localhost";</div>
-              <div>    config.ServerPort = 9090;</div>
-              <div>    config.EnableAutoReconnection = true;</div>
-              <div>});</div>
+              <div class="indent-4">{</div>
+              <div class="indent-8">    config.ServerAddress = "localhost";</div>
+              <div class="indent-8">    config.ServerPort = 9090;</div>
+              <div class="indent-8">    config.EnableAutoReconnection = true;</div>
+              <div class="indent-4">});</div>
             </div>
           </div>
 
@@ -886,13 +886,13 @@
             <div class="terminal-body" id="logging-config-code">
               <div>{</div>
               <div>  "Logging": {</div>
-              <div>    "LogLevel": {</div>
-              <div>      "Default": "Information",</div>
-              <div>      "QortexMQ": "Debug",</div>
-              <div>      "QortexMQ.Connection": "Trace",</div>
-              <div>      "QortexMQ.Subscription": "Trace"</div>
-              <div>    }</div>
-              <div>  }</div>
+              <div class="indent-4">    "LogLevel": {</div>
+              <div class="indent-8">      "Default": "Information",</div>
+              <div class="indent-8">      "QortexMQ": "Debug",</div>
+              <div class="indent-8">      "QortexMQ.Connection": "Trace",</div>
+              <div class="indent-8">      "QortexMQ.Subscription": "Trace"</div>
+              <div class="indent-8">    }</div>
+              <div class="indent-4">  }</div>
               <div>}</div>
             </div>
           </div>

@@ -516,14 +516,10 @@ button.theme-toggle,
 }
 
 /* Code indentation helpers */
-.terminal-body .indent-1 { padding-left: 4px; }
-.terminal-body .indent-2 { padding-left: 8px; }
-.terminal-body .indent-3 { padding-left: 12px; }
-.terminal-body .indent-4 { padding-left: 16px; }
-.terminal-body .indent-5 { padding-left: 20px; }
-.terminal-body .indent-6 { padding-left: 24px; }
-.terminal-body .indent-7 { padding-left: 28px; }
-.terminal-body .indent-8 { padding-left: 32px; }
+
+.terminal-body .indent-4 { padding-left: 2rem; }
+.terminal-body .indent-8 { padding-left: 4rem; }
+.terminal-body .indent-12 { padding-left: 6rem; }
 .prompt { color: var(--accent); }
 .caret { display: inline-block; width: 10px; background: var(--accent); animation: blink 1s steps(1) infinite; }
 

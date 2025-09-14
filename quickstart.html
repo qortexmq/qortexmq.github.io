@@ -131,13 +131,13 @@
             <div class="terminal-body" id="publisher-code">
               <div>using QortexMQ;</div>
               <div>using QortexMQ.Common.Enums;</div>
-              <div>  </div>
+              <br/>
               <div>// Создаём клиент с современным API</div>
               <div>using var client = new QortexMqClient("127.0.0.1", 9090);</div>
               <div>await client.ConnectAsync();</div>
               <div>  </div>
               <div>// Отправляем сообщение с высоким приоритетом</div>
-              <div>"await client.PublishAsync&lt;string&gt;("orders", "Новый заказ #123", MessagePriority.High);"</div>
+              <div>await client.PublishAsync("orders", "Новый заказ #123", MessagePriority.High);</div>
             </div>
           </div>
 
@@ -157,10 +157,10 @@
             <div class="terminal-body" id="subscriber-code">
               <div>// Подписываемся на топик с обработчиком</div>
               <div>await client.SubscribeAsync&lt;string&gt;("orders", async (message) =></div>
-              <div>{</div>
-              <div>    Console.WriteLine($"Получен заказ: {message}");</div>
-              <div>    await Task.Delay(100); // Обработка</div>
-              <div>}, maxHandlers: 1); // 1 параллельный обработчик</div>
+              <div class="indent-4">{</div>
+              <div class="indent-8">    Console.WriteLine($"Получен заказ: {message}");</div>
+              <div class="indent-8">    await Task.Delay(100); // Обработка</div>
+              <div class="indent-4">}, maxHandlers: 1); // 1 параллельный обработчик</div>
             </div>
           </div>
         </div>
