@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ru-RU" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Лицензия QortexMQ | Условия использования брокера сообщений</title>
+  <meta name="description" content="Лицензионное соглашение QortexMQ - условия использования высокопроизводительного брокера сообщений для некоммерческой разработки. Коммерческое использование с разрешения.">
+  <meta name="keywords" content="QortexMQ лицензия, лицензионное соглашение, условия использования, некоммерческая разработка, брокер сообщений, .NET SDK, коммерческое использование">
+  <meta name="author" content="Oleg Trofimov" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://qortexmq.dev/license.html" />
+  <link rel="alternate" hreflang="ru" href="https://qortexmq.dev/license.html" />
+  <link rel="alternate" hreflang="en" href="https://qortexmq.dev/en/license.html" />
+  <link rel="alternate" hreflang="x-default" href="https://qortexmq.dev/license.html" />
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="QortexMQ" />
+  <meta property="og:title" content="Лицензия - QortexMQ" />
+  <meta property="og:description" content="Лицензионное соглашение QortexMQ - условия использования для некоммерческой разработки" />
+  <meta property="og:url" content="https://qortexmq.dev/license.html" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Лицензия - QortexMQ" />
+  <meta name="twitter:description" content="Лицензионное соглашение QortexMQ - условия использования для некоммерческой разработки" />
+  
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <meta name="theme-color" content="#0b0f14">
+  
+  <!-- Schema.org разметка -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Лицензия QortexMQ",
+    "description": "Лицензионное соглашение для использования QortexMQ - брокера сообщений для некоммерческой разработки",
+    "url": "https://qortexmq.dev/license.html",
+    "mainEntity": {
+      "@type": "SoftwareApplication",
+      "name": "QortexMQ",
+      "applicationCategory": "MessageBroker",
+      "license": "https://qortexmq.dev/license.html"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Трофимов Олег"
+    }
+  }
+  </script>
+</head>
+<body>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="index.html">
+          <img class="logo-img" src="assets/img/logo-dark.svg" alt="QortexMQ" />
+          <span class="name">Qortex<span class="mq">MQ</span></span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html">Главная</a>
+          <!-- Documentation Dropdown -->
+          <div class="nav-dropdown">
+            <button class="nav-dropdown-toggle" aria-label="Documentation menu">
+              Документация
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="nav-dropdown-menu">
+              <a href="quickstart.html">🚀 Быстрый старт</a>
+              <a href="docs-server.html">🐳 Сервер</a>
+              <a href="docs-sdk.html">📦 QortexMQ.Client</a>
+            </div>
+          </div>
+          <a href="downloads.html">Загрузки</a>
+          <a href="license.html">Лицензия</a>
+          <a href="index.html#contact">Контакты</a>
+          <!-- Language Switcher -->
+          <div class="lang-switcher">
+            <button id="langToggle" class="lang-toggle" aria-label="Переключить язык">
+              <span id="currentLang">RU</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div id="langDropdown" class="lang-dropdown">
+              <a href="/license.html" data-lang="ru">Русский</a>
+              <a href="/en/license.html" data-lang="en">English</a>
+            </div>
+          </div>
+          <div class="theme-switcher">
+            <button id="themeToggle" class="theme-toggle" aria-label="Переключить тему">
+            <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon">
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <span id="themeLabel">Тёмная</span>
+          </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+
+        <h1>Лицензионное соглашение</h1>
+        <p>Условия использования QortexMQ</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <!-- Хлебные крошки -->
+        <nav class="breadcrumbs" aria-label="Навигация по сайту">
+          <ol>
+            <li><a href="index.html">Главная</a></li>
+            <li aria-current="page">Лицензия</li>
+          </ol>
+        </nav>
+
+        <div class="card">
+          <h2>Лицензия QortexMQ</h2>
+          <p class="muted">Внимательно ознакомьтесь с условиями использования программного обеспечения.</p>
+          
+          <div class="terminal" style="margin-top: 24px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">LICENSE.md</div>
+                <button class="copy-icon" onclick="copyLicense()" title="Копировать лицензию">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-body" id="license-content">
+              <div><span class="prompt">#</span> ЛИЦЕНЗИОННОЕ СОГЛАШЕНИЕ</div>
+              <div><span class="prompt">#</span> QortexMQ - Брокер сообщений</div>
+              <div> </div>
+              <div><span class="prompt">#</span> Версия: Все версии</div>
+              <div><span class="prompt">#</span> Дата: 2025 год</div>
+              <div><span class="prompt">#</span> Автор: Трофимов Олег</div>
+              <div> </div>
+              <div><span class="prompt">#</span> 1. ПРЕДМЕТ СОГЛАШЕНИЯ</div>
+              <div> </div>
+              <div>Настоящее Лицензионное соглашение регулирует порядок</div>
+              <div>использования программного обеспечения "QortexMQ", включающего</div>
+              <div>в себя брокер сообщений и связанные компоненты.</div>
+              <div> </div>
+              <div><span class="prompt">#</span> 2. ПРАВА И ОГРАНИЧЕНИЯ</div>
+              <div> </div>
+              <div>2.1 Разрешенное использование:</div>
+              <div>- Обучение и изучение технологий</div>
+              <div>- Персональные проекты</div>
+              <div>- Некоммерческая разработка</div>
+              <div>- Исследовательская деятельность</div>
+              <div>- Тестирование и эксперименты</div>
+              <div> </div>
+              <div>2.2 Коммерческое использование:</div>
+              <div>- Возможно только с разрешения разработчика</div>
+                              <div>- Обращаться: <span id="legal-email-text">qortexmq2@gmail.com</span></div>
+              <div> </div>
+              <div>Без разрешения запрещено:</div>
+              <div>- Коммерческая деятельность любого рода</div>
+              <div>- Продажа или перепродажа ПО</div>
+              <div>- Включение ПО в коммерческие продукты</div>
+              <div>- Использование в коммерческих сервисах</div>
+              <div>- Получение прибыли от использования ПО</div>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px;">
+            <h3>Основные положения</h3>
+            <ul class="list">
+              <li><strong>Некоммерческое использование:</strong> ПО предназначено для некоммерческой разработки</li>
+              <li><strong>Коммерческое использование:</strong> Возможно только с письменного разрешения разработчика</li>
+              <li><strong>Образовательные цели:</strong> Можно использовать для обучения и исследований</li>
+              <li><strong>Персональные проекты:</strong> Разрешено в личных некоммерческих проектах</li>
+              <li><strong>Исходный код:</strong> Закрыт, модификация запрещена</li>
+            </ul>
+          </div>
+
+          <div style="margin-top: 24px;">
+            <h3>Важные ограничения</h3>
+            <div class="terminal" style="margin-top: 12px;">
+              <div class="terminal-header">
+                <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+                <div class="right-group">
+                  <div class="muted">restrictions.txt</div>
+                </div>
+              </div>
+              <div class="terminal-body">
+                <div><span class="prompt">❌</span> Запрещено без разрешения:</div>
+                <div>  - Использование в коммерческих SaaS</div>
+                <div>  - Продажа ПО или продуктов на его основе</div>
+                <div>  - Интеграция в коммерческие платформы</div>
+                <div>  - Получение прибыли любым способом</div>
+                <div>  - Модификация исходного кода</div>
+                <div> </div>
+                <div><span class="prompt">✅</span> Разрешено:</div>
+                <div>  - Обучение и эксперименты</div>
+                <div>  - Некоммерческие проекты</div>
+                <div>  - Персональные некоммерческие проекты</div>
+                <div>  - Исследования и тестирование</div>
+                <div>  - Коммерческое использование с разрешения</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px;">
+            <h3>Полный текст лицензии</h3>
+            <p class="muted">Для получения полного текста лицензии скачайте файл или скопируйте содержимое выше.</p>
+            <div style="display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap;">
+              <button class="cta" onclick="downloadLicense('ru')">
+                📥 Скачать LICENSE.txt
+              </button>
+          </div>
+              <button class="cta" onclick="copyLicense()">
+                📋 Скопировать лицензию
+              </button>
+          </div>
+            </div>
+          </div>
+
+          <div class="container" style="margin-top: 24px;">
+            <h3>Связанные документы</h3>
+            <ul class="list">
+              <li><a href="quickstart.html">Документация по использованию</a> - установка, настройка и примеры</li>
+              <li><a href="about.html">Информация о проекте</a> - история создания и команда</li>
+              <li><a href="downloads.html">Скачать ПО</a> - бинарные файлы для разных платформ</li>
+              <li><a href="index.html#features">Возможности QortexMQ</a> - основные функции и преимущества</li>
+              <li><a href="index.html#contact">Связаться с нами</a> - получить разрешение на коммерческое использование</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="grid">
+          <div class="card">
+            <h2>Коммерческое использование</h2>
+            <p class="muted">Для использования QortexMQ в коммерческих проектах необходимо получить письменное разрешение от разработчика. Опишите ваш проект, и мы рассмотрим возможность предоставления лицензии.</p>
+            <div style="margin-top: 16px;" id="legal-contacts">
+              <!-- Контакты будут добавлены автоматически из contacts.js -->
+            </div>
+          </div>
+          <div class="card">
+            <h2>Некоммерческое использование</h2>
+            <p class="muted">Для обучения, исследований и персональных проектов лицензия не требуется. Смело используйте QortexMQ для изучения технологий!</p>
+            <div style="margin-top: 16px;" id="support-contacts">
+              <!-- Контакты будут добавлены автоматически из contacts.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+          <a class="cta" href="index.html">← На главную</a>
+          <div style="color: var(--muted); font-size: 0.9rem;">
+            © 2025 QortexMQ. Все права защищены.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <script src="assets/js/theme.js" defer></script>
+  <script src="config/site.js" defer></script>
+  <script src="config/contacts.js" defer></script>
+  <script src="config/downloads.js" defer></script>
+  <script src="config/analytics.js" defer></script>
+      <script src="config/validator.js" defer></script>
+      <script src="config/license-generator.js" defer></script>
+  <script src="assets/js/animations.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <script>
+        // Автоматически создаем контакты из contacts.js
+    document.addEventListener('DOMContentLoaded', function() {
+      // Создаем контакты для коммерческого использования
+      const legalContainer = document.getElementById('legal-contacts');
+      if (legalContainer) {
+        createContacts(legalContainer, ['email', 'telegram', 'github']);
+      }
+      
+      // Создаем контакты для поддержки
+      const supportContainer = document.getElementById('support-contacts');
+      if (supportContainer) {
+        createContacts(supportContainer, ['email', 'telegram', 'github']);
+      }
+      
+      // Обновляем email адреса в тексте лицензии
+      const legalEmailTexts = document.querySelectorAll('#legal-email-text, #legal-email-text-2');
+      legalEmailTexts.forEach(element => {
+        if (shouldShowContact('email')) {
+          element.textContent = getContact('email');
+        }
+      });
+    });
+    
+    function createContacts(container, types) {
+      types.forEach(type => {
+        if (shouldShowContact(type)) {
+          const contactP = document.createElement('p');
+          let label, href, text;
+          
+          switch (type) {
+            case 'email':
+              label = 'Email:';
+              href = `mailto:${getContact(type)}`;
+              text = getContact(type);
+              break;
+            case 'telegram':
+              label = 'Telegram:';
+              href = getContact(type);
+              text = getContactText(type);
+              break;
+            case 'github':
+              label = 'GitHub:';
+              href = getContact(type);
+              text = getContactText(type);
+              break;
+          }
+          
+          contactP.innerHTML = `<strong>${label}</strong> <a href="${href}" style="color: var(--accent-2); text-decoration: none;">${text}</a>`;
+          container.appendChild(contactP);
+        }
+      });
+    }
+    function copyLicense() {
+             const currentEmail = getContact('email');
+             const licenseText = `ЛИЦЕНЗИОННОЕ СОГЛАШЕНИЕ
+QortexMQ - Брокер сообщений
+
+Версия: Все версии
+Дата: 2025 год
+Автор: Трофимов Олег
+
+1. ПРЕДМЕТ СОГЛАШЕНИЯ
+
+Настоящее Лицензионное соглашение регулирует порядок использования программного обеспечения "QortexMQ", включающего в себя брокер сообщений и связанные компоненты.
+
+2. ПРАВА И ОГРАНИЧЕНИЯ
+
+2.1 Разрешенное использование
+Лицензиату предоставляется неисключительное, непередаваемое право на использование ПО исключительно в следующих целях:
+- Обучение и изучение технологий
+- Персональные проекты
+- Некоммерческая разработка
+- Исследовательская деятельность
+- Тестирование и эксперименты
+
+2.2 Коммерческое использование
+Коммерческое использование ПО возможно только при получении письменного разрешения от разработчика. Для получения разрешения обращайтесь по адресу: ${currentEmail}
+
+Без разрешения запрещается использование ПО в следующих случаях:
+- Коммерческая деятельность любого рода
+- Продажа или перепродажа ПО
+- Включение ПО в коммерческие продукты
+- Использование в коммерческих сервисах
+- Получение прибыли от использования ПО
+
+3. ОГРАНИЧЕНИЯ ПО РАСПРОСТРАНЕНИЮ
+
+3.1 Запрещено:
+- Продавать, сдавать в аренду или иным образом коммерчески распространять ПО
+- Предоставлять доступ к ПО третьим лицам для коммерческого использования
+- Использовать ПО в коммерческих SaaS решениях
+- Интегрировать ПО в коммерческие платформы
+
+3.2 Разрешено:
+- Использовать ПО в образовательных учреждениях
+- Применять ПО в некоммерческих проектах
+- Использовать ПО для обучения и исследований
+- Применять ПО в персональных некоммерческих проектах
+
+4. ИСХОДНЫЙ КОД
+
+4.1 Доступность
+Исходный код ПО является закрытым и не предоставляется пользователям. Доступ к исходному коду ограничен и предоставляется только по специальному разрешению разработчика.
+
+4.2 Модификация
+Модификация исходного кода ПО запрещена. Лицензиат может использовать только предварительно скомпилированные бинарные файлы и SDK, предоставляемые разработчиком.
+
+ВАЖНО: Использование ПО означает принятие всех условий настоящего Лицензионного соглашения. Если вы не согласны с условиями, не используйте ПО.
+
+Полный текст лицензии доступен на сайте: https://qortexmq.dev/license.html`;
+
+      navigator.clipboard.writeText(licenseText).then(() => {
+        showToast('Лицензия скопирована в буфер обмена');
+      }).catch(err => {
+        console.error('Ошибка копирования:', err);
+        showToast('Ошибка копирования');
+      });
+    }
+    
+    function showToast(message) {
+      // Удаляем существующие тосты
+      const existingToast = document.querySelector('.toast');
+      if (existingToast) {
+        existingToast.remove();
+      }
+      
+      // Создаем новый тост
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.textContent = message;
+      document.body.appendChild(toast);
+      
+      // Показываем тост
+      setTimeout(() => toast.classList.add('show'), 100);
+      
+      // Скрываем тост через 3 секунды
+      setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+  </script>
+
+  <!-- Кнопка "Наверх" -->
+  <button id="backToTop" class="back-to-top" aria-label="Наверх" title="Наверх">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+
+  <script>
+    // Кнопка "Наверх"
+    document.addEventListener('DOMContentLoaded', function() {
+      const backToTopButton = document.getElementById('backToTop');
+      
+      // Показать/скрыть кнопку при прокрутке
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.add('visible');
+        } else {
+          backToTopButton.classList.remove('visible');
+        }
+      });
+      
+      // Плавная прокрутка наверх
+      backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>

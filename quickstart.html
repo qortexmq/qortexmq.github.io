@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="ru-RU" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>QortexMQ — Быстрый старт</title>
+    <meta name="description" content="Быстрый старт с QortexMQ: установка, запуск сервера и первый пример на .NET за 5 минут." />
+    <meta name="keywords" content="QortexMQ документация, .NET пример, C#, message broker, pub/sub, event streaming" />
+    <meta name="author" content="Oleg Trofimov" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="https://qortexmq.dev/quickstart.html" />
+    <link rel="alternate" hreflang="ru" href="https://qortexmq.dev/quickstart.html" />
+    <link rel="alternate" hreflang="en" href="https://qortexmq.dev/en/quickstart.html" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="manifest" href="manifest.json?v=1.0.1" />
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://mc.yandex.ru data:; script-src 'self' https://www.googletagmanager.com https://mc.yandex.ru 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self'; frame-src https://mc.yandex.ru;" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <script>document.documentElement.classList.add('js')</script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Быстрый старт QortexMQ",
+      "about": "Message broker QortexMQ",
+      "mainEntityOfPage": "https://qortexmq.dev/quickstart.html",
+      "author": {"@type":"Organization","name":"QortexMQ"}
+    }
+    </script>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="index.html">
+          <img class="logo-img" src="assets/img/logo-dark.svg" alt="QortexMQ" />
+          <span class="name">Qortex<span class="mq">MQ</span></span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html">Главная</a>
+          <!-- Documentation Dropdown -->
+          <div class="nav-dropdown">
+            <button class="nav-dropdown-toggle" aria-label="Documentation menu">
+              Документация
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="nav-dropdown-menu">
+              <a href="quickstart.html">📚 Быстрый старт</a>
+              <a href="docs-server.html">🐳 Сервер</a>
+              <a href="docs-sdk.html">📦 QortexMQ.Client</a>
+            </div>
+          </div>
+          <a href="downloads.html">Загрузки</a>
+          <a href="license.html">Лицензия</a>
+          <a href="index.html#contact">Контакты</a>
+          <!-- Language Switcher -->
+          <div class="lang-switcher">
+            <button id="langToggle" class="lang-toggle" aria-label="Переключить язык">
+              <span id="currentLang">RU</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div id="langDropdown" class="lang-dropdown">
+              <a href="/quickstart.html" data-lang="ru">Русский</a>
+              <a href="/en/quickstart.html" data-lang="en">English</a>
+            </div>
+          </div>
+          <div class="theme-switcher">
+          <button id="themeToggle" class="theme-toggle" aria-label="Переключить тему">
+              <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            <span id="themeLabel">Тёмная</span>
+          </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="container hero-inner">
+        <h1 class="reveal">Документация QortexMQ</h1>
+        <p class="reveal">Полная документация по установке, настройке и использованию QortexMQ.</p>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <!-- Хлебные крошки -->
+        <nav class="breadcrumbs" aria-label="Навигация по сайту">
+          <ol>
+            <li><a href="index.html">Главная</a></li>
+            <li aria-current="page">Документация</li>
+          </ol>
+        </nav>
+
+        <!-- Навигация по документации -->
+        <div class="card reveal">
+          <h2>🚀 Быстрый старт</h2>
+          <p>Запусти сервер и используй .NET клиент для отправки и получения сообщений:</p>
+          
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">dotnet@localhost:~</div>
+                <button class="copy-icon" onclick="copyCode('quickstart-code')" title="Копировать">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-body" id="quickstart-code">
+              <div><span class="prompt">$</span> docker run -d --name qortexmq-server -p 9090:9090 -p 9080:9080 qortexmq-server</div>
+              <div><span class="prompt">$</span> # Открыть http://localhost:9080 для веб-интерфейса</div>
+            </div>
+          </div>
+
+          <p style="margin-top:12px;">Теперь используй .NET клиент для отправки сообщений:</p>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">Publisher.cs</div>
+                <button class="copy-icon" onclick="copyCode('publisher-code')" title="Копировать">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-body" id="publisher-code">
+              <div>using QortexMQ;</div>
+              <div>using QortexMQ.Common.Enums;</div>
+              <div>  </div>
+              <div>// Создаём клиент с современным API</div>
+              <div>using var client = new QortexMqClient("127.0.0.1", 9090);</div>
+              <div>await client.ConnectAsync();</div>
+              <div>  </div>
+              <div>// Отправляем сообщение с высоким приоритетом</div>
+              <div>"await client.PublishAsync&lt;string&gt;("orders", "Новый заказ #123", MessagePriority.High);"</div>
+            </div>
+          </div>
+
+          <p style="margin-top:12px;">И подпишись на топик для получения сообщений:</p>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">Subscriber.cs</div>
+                <button class="copy-icon" onclick="copyCode('subscriber-code')" title="Копировать">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-body" id="subscriber-code">
+              <div>// Подписываемся на топик с обработчиком</div>
+              <div>await client.SubscribeAsync&lt;string&gt;("orders", async (message) =></div>
+              <div>{</div>
+              <div>    Console.WriteLine($"Получен заказ: {message}");</div>
+              <div>    await Task.Delay(100); // Обработка</div>
+              <div>}, maxHandlers: 1); // 1 параллельный обработчик</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <h2>📚 Дополнительная документация</h2>
+          <p>Для подробного изучения возможностей QortexMQ:</p>
+          
+          <div class="grid" style="margin-top:20px;">
+            <div>
+              <h3>🐳 Документация сервера</h3>
+              <p>Установка, запуск и настройка сервера QortexMQ</p>
+              <a href="docs-server.html" class="cta" style="margin-top: 15px; display: inline-block;">Перейти к серверу →</a>
+            </div>
+            <div>
+              <h3>📦 QortexMQ.Client</h3>
+              <p>Подробная документация по .NET клиенту и примерам</p>
+              <a href="docs-sdk.html" class="cta" style="margin-top: 15px; display: inline-block;">Перейти к SDK →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <a class="cta" href="index.html">← На главную</a>
+      </div>
+    </footer>
+
+    <!-- Кнопка "Наверх" -->
+    <button id="backToTop" class="back-to-top" aria-label="Наверх" title="Наверх">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 15l-6-6-6 6"/>
+      </svg>
+    </button>
+
+    <script src="assets/js/theme.js" defer></script>
+    <script src="config/site.js" defer></script>
+    <script src="config/contacts.js" defer></script>
+    <script src="config/downloads.js" defer></script>
+    <script src="config/analytics.js" defer></script>
+    <script src="config/validator.js" defer></script>
+    <script src="assets/js/animations.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+
+    <script>
+      // Кнопка "Наверх"
+      document.addEventListener('DOMContentLoaded', function() {
+        const backToTopButton = document.getElementById('backToTop');
+        
+        // Показать/скрыть кнопку при прокрутке
+        window.addEventListener('scroll', function() {
+          if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('visible');
+          } else {
+            backToTopButton.classList.remove('visible');
+          }
+        });
+        
+        // Плавная прокрутка наверх
+        backToTopButton.addEventListener('click', function() {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      });
+    </script>
+
+    <!-- Analytics - IDs берутся из analytics.js -->
+    <script>
+      // Инициализация аналитики после загрузки всех скриптов
+      function initAnalytics() {
+        // Google Analytics
+        if (typeof isAnalyticsEnabled === 'function' && isAnalyticsEnabled('google') && getGoogleAnalyticsId()) {
+          const gaScript = document.createElement('script');
+          gaScript.async = true;
+          gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${getGoogleAnalyticsId()}`;
+          document.head.appendChild(gaScript);
+          
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);} 
+          gtag('js', new Date()); 
+          gtag('config', getGoogleAnalyticsId());
+        }
+        
+        // Yandex.Metrika
+        if (typeof isAnalyticsEnabled === 'function' && isAnalyticsEnabled('yandex') && getYandexMetrikaId()) {
+          (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();
+          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+          (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+          ym(getYandexMetrikaId(), "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
+          
+          // Noscript fallback
+          const noscript = document.createElement('noscript');
+          noscript.innerHTML = `<div><img src="https://mc.yandex.ru/watch/${getYandexMetrikaId()}" style="position:absolute; left:-9999px;" alt=""/></div>`;
+          document.body.appendChild(noscript);
+        }
+      }
+      
+      // Запуск аналитики после загрузки всех скриптов
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAnalytics);
+      } else {
+        initAnalytics();
+      }
+    </script>
+  </body>
+</html>

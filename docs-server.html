@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="ru-RU" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>QortexMQ — Документация сервера: установка и запуск</title>
+    <meta name="description" content="Документация сервера QortexMQ: установка, запуск в Docker, настройка и управление." />
+    <meta name="keywords" content="QortexMQ сервер, Docker, установка, настройка, message broker" />
+    <meta name="author" content="Oleg Trofimov" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="https://qortexmq.dev/docs-server.html" />
+    <link rel="alternate" hreflang="ru" href="https://qortexmq.dev/docs-server.html" />
+    <link rel="alternate" hreflang="en" href="https://qortexmq.dev/en/docs-server.html" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="manifest" href="manifest.json?v=1.0.1" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://mc.yandex.ru data:; script-src 'self' https://www.googletagmanager.com https://mc.yandex.ru 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self'; frame-src https://mc.yandex.ru;" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <script>document.documentElement.classList.add('js')</script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Документация сервера QortexMQ",
+      "about": "Message broker QortexMQ Server",
+      "mainEntityOfPage": "https://qortexmq.dev/docs-server.html",
+      "author": {"@type":"Organization","name":"QortexMQ"}
+    }
+    </script>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="index.html">
+          <img class="logo-img" src="assets/img/logo-dark.svg" alt="QortexMQ" />
+          <span class="name">Qortex<span class="mq">MQ</span></span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html">Главная</a>
+          <!-- Documentation Dropdown -->
+          <div class="nav-dropdown">
+            <button class="nav-dropdown-toggle" aria-label="Documentation menu">
+              Документация
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="nav-dropdown-menu">
+              <a href="quickstart.html">🚀 Быстрый старт</a>
+              <a href="docs-server.html">🐳 Сервер</a>
+              <a href="docs-sdk.html">📦 QortexMQ.Client</a>
+            </div>
+          </div>
+          <a href="downloads.html">Загрузки</a>
+          <a href="license.html">Лицензия</a>
+          <a href="index.html#contact">Контакты</a>
+          <!-- Language Switcher -->
+          <div class="lang-switcher">
+            <button id="langToggle" class="lang-toggle" aria-label="Переключить язык">
+              <span id="currentLang">RU</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div id="langDropdown" class="lang-dropdown">
+              <a href="/docs-server.html" data-lang="ru">Русский</a>
+              <a href="/en/docs-server.html" data-lang="en">English</a>
+            </div>
+          </div>
+          <div class="theme-switcher">
+            <button id="themeToggle" class="theme-toggle" aria-label="Переключить тему">
+            <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon">
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <span id="themeLabel">Тёмная</span>
+          </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="container hero-inner">
+        <h1 class="reveal">Документация сервера QortexMQ</h1>
+        <p class="reveal">Установка, запуск и настройка сервера QortexMQ в Docker.</p>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <!-- Хлебные крошки -->
+        <nav class="breadcrumbs" aria-label="Навигация по сайту">
+          <ol>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="quickstart.html">Документация</a></li>
+            <li aria-current="page">Сервер</li>
+          </ol>
+        </nav>
+
+        <!-- Навигация по документации -->
+        <div class="card reveal">
+          <h2>📚 Навигация по документации</h2>
+          <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 15px;">
+            <a href="quickstart.html" class="cta">← Все разделы</a>
+            <a href="docs-server.html" class="cta" style="background: transparent; border: 2px solid var(--accent); color: var(--accent);">🐳 Сервер</a>
+            <a href="docs-sdk.html" class="cta">📦 QortexMQ.Client</a>
+          </div>
+        </div>
+
+        <!-- Оглавление -->
+        <div class="card reveal toc-card">
+          <h2>📋 Содержание</h2>
+          <nav class="table-of-contents" aria-label="Содержание документации">
+            <ol>
+              <li><a href="#download">📥 Установка QortexMQ Server</a>
+                <ul>
+                  <li><a href="#native-distributions">Нативные дистрибутивы</a></li>
+                  <li><a href="#docker-file">Docker образ из файла</a></li>
+                  <li><a href="#docker-hub">Docker Hub (облако)</a></li>
+                </ul>
+              </li>
+              <li><a href="#quick-start">🚀 Быстрый старт</a></li>
+              <li><a href="#verification">✅ Проверка работы</a></li>
+              <li><a href="#management">🎛️ Управление контейнером</a></li>
+              <li><a href="#configuration">⚙️ Настройка переменных окружения</a></li>
+              <li><a href="#troubleshooting">🔍 Решение проблем</a></li>
+              <li><a href="#resources">📚 Дополнительные ресурсы</a></li>
+            </ol>
+          </nav>
+        </div>
+
+        <!-- Скачивание образа -->
+        <div class="card reveal" id="download">
+          <h2>📥 Установка QortexMQ Server</h2>
+          
+          <h3>Способы установки</h3>
+
+          <h4 id="native-distributions">1. Нативные дистрибутивы (рекомендуется)</h4>
+          <p><strong>Скачайте готовый исполняемый файл для вашей платформы:</strong></p>
+          <ul>
+            <li><strong>Windows</strong>: <code>QortexMQ.Server-v1.3.0-x64.zip</code></li>
+            <li><strong>Linux</strong>: <code>QortexMQ.Server-v1.3.0-linux.zip</code></li>
+            <li><strong>macOS</strong>: <code>QortexMQ.Server-v1.3.0-macos.zip</code></li>
+          </ul>
+          <p><strong>Пошаговая инструкция:</strong></p>
+          <ol>
+            <li><strong>Перейдите по ссылке</strong>: <a href="downloads.html">дистрибутивы на странице Загрузки</a></li>
+            <li><strong>Скачайте архив</strong> для вашей операционной системы</li>
+            <li><strong>Распакуйте архив</strong> в удобную папку</li>
+            <li><strong>Запустите сервер</strong>:</li>
+          </ol>
+
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">Windows</div>
+                <button class="copy-icon" onclick="copyCode('windows-run')" title="Копировать">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-body" id="windows-run">
+              <div><span class="prompt">C:\></span> QortexMQ.Server.exe</div>
+            </div>
+          </div>
+
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">Linux/macOS</div>
+                <button class="copy-icon" onclick="copyCode('unix-run')" title="Копировать">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-body" id="unix-run">
+              <div><span class="prompt">$</span> chmod +x QortexMQ.Server</div>
+              <div><span class="prompt">$</span> ./QortexMQ.Server</div>
+            </div>
+          </div>
+
+          <h4 id="docker-file">2. Docker образ (альтернативный способ)</h4>
+          <p><strong>Предварительные требования:</strong></p>
+          <ul>
+            <li>Установленный Docker Desktop или Docker Engine</li>
+            <li>Интернет-соединение для скачивания образа</li>
+          </ul>
+          <p><strong>Пошаговая инструкция:</strong></p>
+          <ol>
+            <li><strong>Перейдите по ссылке</strong>: <a href="downloads.html">образ на странице Загрузки</a></li>
+            <li><strong>Скачайте файл</strong>: <code>qortexmq-server.tar.gz</code></li>
+            <li><strong>Загрузите в Docker</strong>:</li>
+          </ol>
+
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">docker@localhost:~</div>
+                <button class="copy-icon" onclick="copyCode('download-code')" title="Копировать">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-body" id="download-code">
+              <div><span class="prompt">$</span> docker load < qortexmq-server.tar.gz</div>
+            </div>
+          </div>
+
+          <h4 id="docker-hub">3. Загрузка из Docker Hub (рекомендуется для облачного использования)</h4>
+          <p><strong>Предварительные требования:</strong></p>
+          <ul>
+            <li>Установленный Docker Desktop или Docker Engine</li>
+            <li>Интернет-соединение для скачивания образа</li>
+            <li>Аккаунт в Docker Hub (опционально, для приватных образов)</li>
+          </ul>
+          <p><strong>Пошаговая инструкция:</strong></p>
+          <ol>
+            <li><strong>Скачайте образ из Docker Hub</strong>:</li>
+          </ol>
+
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">docker@localhost:~</div>
+                <button class="copy-icon" onclick="copyCode('dockerhub-pull')" title="Копировать">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-body" id="dockerhub-pull">
+              <div><span class="prompt">$</span> # Скачать latest версию</div>
+              <div><span class="prompt">$</span> docker pull qortexmq/qortexmq-server:latest</div>
+              <div><span class="prompt">$</span> </div>
+              <div><span class="prompt">$</span> # Или скачать конкретную версию</div>
+              <div><span class="prompt">$</span> docker pull qortexmq/qortexmq-server:1.3.0</div>
+            </div>
+          </div>
+
+          <h4 id="run-image">Запуск образа</h4>
+          <p>После скачивания образа из Docker Hub, запустите его одной командой:</p>
+
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">docker@localhost:~</div>
+                <button class="copy-icon" onclick="copyCode('cloud-run')" title="Копировать">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-body" id="cloud-run">
+              <div><span class="prompt">$</span> docker run -d \</div>
+              <div><span class="prompt">$</span>   --name qortexmq-server \</div>
+              <div><span class="prompt">$</span>   -p 9090:9090 \</div>
+              <div><span class="prompt">$</span>   -p 9080:9080 \</div>
+              <div><span class="prompt">$</span>   qortexmq/qortexmq-server:latest</div>
+            </div>
+          </div>
+
+          <div class="alert alert-info" style="margin-top: 15px;">
+            <strong>💡 Преимущества Docker Hub:</strong>
+            <ul style="margin: 10px 0 0 0;">
+              <li>Автоматическое обновление образов</li>
+              <li>Версионирование и теги</li>
+              <li>Быстрое развертывание в облаке</li>
+              <li>Интеграция с CI/CD</li>
+              <li>Поддержка различных архитектур</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Быстрый старт -->
+        <div class="card reveal" id="quick-start">
+          <h2>🚀 Быстрый старт</h2>
+          
+          <h3>Простой запуск (рекомендуется)</h3>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">docker@localhost:~</div>
+                <button class="copy-icon" onclick="copyCode('run-simple')" title="Копировать">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-body" id="run-simple">
+              <div><span class="prompt">$</span> docker run -d \</div>
+              <div><span class="prompt">$</span>   --name qortexmq-server \</div>
+              <div><span class="prompt">$</span>   -p 9090:9090 \</div>
+              <div><span class="prompt">$</span>   -p 9080:9080 \</div>
+              <div><span class="prompt">$</span>   qortexmq-server:latest</div>
+            </div>
+          </div>
+
+          <h3>Запуск с переменными окружения</h3>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">docker@localhost:~</div>
+                <button class="copy-icon" onclick="copyCode('run-env')" title="Копировать">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-body" id="run-env">
+              <div><span class="prompt">$</span> docker run -d \</div>
+              <div><span class="prompt">$</span>   --name qortexmq-server \</div>
+              <div><span class="prompt">$</span>   -p 9090:9090 \</div>
+              <div><span class="prompt">$</span>   -p 9080:9080 \</div>
+              <div><span class="prompt">$</span>   -e QMQ_WebServer__UseWebServer=true \</div>
+              <div><span class="prompt">$</span>   -e QMQ_WebServer__Urls=http://0.0.0.0:9080 \</div>
+              <div><span class="prompt">$</span>   -e QMQ_Server__Ip=0.0.0.0 \</div>
+              <div><span class="prompt">$</span>   -e QMQ_Server__Port=9090 \</div>
+              <div><span class="prompt">$</span>   qortexmq-server:latest</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Проверка работы -->
+        <div class="card reveal" id="verification">
+          <h2>✅ Проверка работы</h2>
+          
+          <h3>Проверка статуса контейнера</h3>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">docker@localhost:~</div>
+                <button class="copy-icon" onclick="copyCode('status-code')" title="Копировать">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-body" id="status-code">
+              <div><span class="prompt">$</span> docker ps | grep qortexmq</div>
+              <div><span class="prompt">$</span> docker logs qortexmq-server</div>
+            </div>
+          </div>
+
+          <h3>Проверка доступности сервисов</h3>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">curl@localhost:~</div>
+                <button class="copy-icon" onclick="copyCode('test-code')" title="Копировать">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-body" id="test-code">
+              <div><span class="prompt">$</span> curl http://localhost:9080</div>
+              <div><span class="prompt">$</span> telnet localhost 9090</div>
+            </div>
+          </div>
+
+          <h3>Доступные URL</h3>
+          <ul>
+            <li><strong>Веб-интерфейс</strong>: <a href="http://localhost:9080" target="_blank">http://localhost:9080</a></li>
+            <li><strong>TCP сервер</strong>: localhost:9090</li>
+          </ul>
+        </div>
+
+        <!-- Управление контейнером -->
+        <div class="card reveal" id="management">
+          <h2>🎛️ Управление контейнером</h2>
+          
+          <h3>Основные команды</h3>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">docker@localhost:~</div>
+                <button class="copy-icon" onclick="copyCode('manage-code')" title="Копировать">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-body" id="manage-code">
+              <div><span class="prompt">$</span> # Остановка</div>
+              <div><span class="prompt">$</span> docker stop qortexmq-server</div>
+              <div><span class="prompt">$</span> </div>
+              <div><span class="prompt">$</span> # Запуск</div>
+              <div><span class="prompt">$</span> docker start qortexmq-server</div>
+              <div><span class="prompt">$</span> </div>
+              <div><span class="prompt">$</span> # Перезапуск</div>
+              <div><span class="prompt">$</span> docker restart qortexmq-server</div>
+              <div><span class="prompt">$</span> </div>
+              <div><span class="prompt">$</span> # Удаление</div>
+              <div><span class="prompt">$</span> docker stop qortexmq-server</div>
+              <div><span class="prompt">$</span> docker rm qortexmq-server</div>
+            </div>
+          </div>
+
+          <h3>Просмотр логов</h3>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">docker@localhost:~</div>
+                <button class="copy-icon" onclick="copyCode('logs-code')" title="Копировать">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-body" id="logs-code">
+              <div><span class="prompt">$</span> # Просмотр логов</div>
+              <div><span class="prompt">$</span> docker logs qortexmq-server</div>
+              <div><span class="prompt">$</span> </div>
+              <div><span class="prompt">$</span> # Логи в реальном времени</div>
+              <div><span class="prompt">$</span> docker logs -f qortexmq-server</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Переменные окружения -->
+        <div class="card reveal" id="configuration">
+          <h2>⚙️ Настройка переменных окружения</h2>
+          
+          <h3>Основные переменные</h3>
+          <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+            <thead>
+              <tr style="background: var(--bg-secondary);">
+                <th style="padding: 10px; border: 1px solid var(--border); text-align: left;">Переменная</th>
+                <th style="padding: 10px; border: 1px solid var(--border); text-align: left;">Значение по умолчанию</th>
+                <th style="padding: 10px; border: 1px solid var(--border); text-align: left;">Описание</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>QMQ_WebServer__UseWebServer</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>true</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Включить веб-сервер</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>QMQ_WebServer__Urls</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>http://0.0.0.0:9080</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">URL веб-сервера</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>QMQ_Server__Ip</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>0.0.0.0</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">IP адрес TCP сервера</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>QMQ_Server__Port</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>9090</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Порт TCP сервера</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Troubleshooting -->
+        <div class="card reveal" id="troubleshooting">
+          <h2>🔍 Решение проблем</h2>
+          
+          <h3>Проблема: Порт уже используется</h3>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">docker@localhost:~</div>
+                <button class="copy-icon" onclick="copyCode('port-code')" title="Копировать">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-body" id="port-code">
+              <div><span class="prompt">$</span> # Найти процесс, использующий порт</div>
+              <div><span class="prompt">$</span> lsof -i :9090</div>
+              <div><span class="prompt">$</span> lsof -i :9080</div>
+              <div><span class="prompt">$</span> </div>
+              <div><span class="prompt">$</span> # Остановить контейнер</div>
+              <div><span class="prompt">$</span> docker stop qortexmq-server</div>
+            </div>
+          </div>
+
+          <h3>Проблема: Контейнер не запускается</h3>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">docker@localhost:~</div>
+                <button class="copy-icon" onclick="copyCode('debug-code')" title="Копировать">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-body" id="debug-code">
+              <div><span class="prompt">$</span> # Проверить логи</div>
+              <div><span class="prompt">$</span> docker logs qortexmq-server</div>
+              <div><span class="prompt">$</span> </div>
+              <div><span class="prompt">$</span> # Проверить статус</div>
+              <div><span class="prompt">$</span> docker ps -a | grep qortexmq</div>
+            </div>
+          </div>
+
+          <h3>Проблема: Образ не найден</h3>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">docker@localhost:~</div>
+                <button class="copy-icon" onclick="copyCode('image-code')" title="Копировать">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-body" id="image-code">
+              <div><span class="prompt">$</span> # Проверить доступные образы</div>
+              <div><span class="prompt">$</span> docker images | grep qortexmq</div>
+              <div><span class="prompt">$</span> </div>
+              <div><span class="prompt">$</span> # Если образ отсутствует, собрать из исходного кода</div>
+              <div><span class="prompt">$</span> git clone https://github.com/your-username/QortexMQ.git</div>
+              <div><span class="prompt">$</span> cd QortexMQ/src</div>
+              <div><span class="prompt">$</span> docker build -f QortexMQ.Server/Dockerfile -t qortexmq-server:latest .</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Дополнительные ресурсы -->
+        <div class="card reveal" id="resources">
+          <h2>📚 Дополнительные ресурсы</h2>
+          <ul>
+            <li><a href="docs-sdk.html">Документация QortexMQ.Client</a></li>
+            <li><a href="downloads.html">Скачать QortexMQ</a></li>
+            <li><a href="license.html">Лицензия</a></li>
+            <li><a href="index.html#contact">Контакты и поддержка</a></li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <a class="cta" href="quickstart.html">← Все разделы документации</a>
+      </div>
+    </footer>
+
+    <!-- Кнопка "Наверх" -->
+    <button id="backToTop" class="back-to-top" aria-label="Наверх" title="Наверх">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 15l-6-6-6 6"/>
+      </svg>
+    </button>
+
+    <script src="assets/js/theme.js" defer></script>
+    <script src="config/site.js" defer></script>
+    <script src="config/contacts.js" defer></script>
+    <script src="config/analytics.js" defer></script>
+    <script src="config/validator.js" defer></script>
+    <script src="assets/js/animations.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+
+    <script>
+      // Кнопка "Наверх"
+      document.addEventListener('DOMContentLoaded', function() {
+        const backToTopButton = document.getElementById('backToTop');
+        
+        // Показать/скрыть кнопку при прокрутке
+        window.addEventListener('scroll', function() {
+          if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('visible');
+          } else {
+            backToTopButton.classList.remove('visible');
+          }
+        });
+        
+        // Плавная прокрутка наверх
+        backToTopButton.addEventListener('click', function() {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+
+        // Подсветка активного раздела в оглавлении
+        const tocLinks = document.querySelectorAll('.table-of-contents a');
+        const sections = document.querySelectorAll('[id]');
+        
+        function updateActiveSection() {
+          let current = '';
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if (window.pageYOffset >= sectionTop) {
+              current = section.getAttribute('id');
+            }
+          });
+          
+          tocLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+              link.classList.add('active');
+            }
+          });
+        }
+        
+        window.addEventListener('scroll', updateActiveSection);
+        updateActiveSection(); // Вызвать при загрузке
+      });
+    </script>
+
+    <script>
+      function copyCode(elementId) {
+        const element = document.getElementById(elementId);
+        const text = element.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          // Показать уведомление о копировании
+          const button = element.parentElement.querySelector('.copy-icon');
+          const originalTitle = button.title;
+          button.title = 'Скопировано!';
+          setTimeout(() => {
+            button.title = originalTitle;
+          }, 2000);
+        });
+      }
+    </script>
+
+    <!-- Analytics - IDs берутся из analytics.js -->
+    <script>
+      // Google Analytics
+      if (typeof isAnalyticsEnabled === 'function' && isAnalyticsEnabled('google') && typeof getGoogleAnalyticsId === 'function' && getGoogleAnalyticsId()) {
+        const gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${getGoogleAnalyticsId()}`;
+        document.head.appendChild(gaScript);
+        
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);} 
+        gtag('js', new Date()); 
+        gtag('config', getGoogleAnalyticsId());
+      }
+      
+      // Yandex.Metrika
+      if (typeof isAnalyticsEnabled === 'function' && isAnalyticsEnabled('yandex') && typeof getYandexMetrikaId === 'function' && getYandexMetrikaId()) {
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        ym(getYandexMetrikaId(), "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
+        
+        // Noscript fallback
+        const noscript = document.createElement('noscript');
+        noscript.innerHTML = `<div><img src="https://mc.yandex.ru/watch/${getYandexMetrikaId()}" style="position:absolute; left:-9999px;" alt=""/></div>`;
+        document.body.appendChild(noscript);
+      }
+    </script>
+  </body>
+</html>

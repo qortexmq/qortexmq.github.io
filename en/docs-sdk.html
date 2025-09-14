@@ -1,0 +1,1066 @@
+<!doctype html>
+<html lang="en-US" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>QortexMQ.Client .NET SDK Documentation | Complete Guide & API Reference</title>
+    <meta name="description" content="Complete QortexMQ.Client .NET SDK documentation with installation guide, configuration examples, Dependency Injection setup, best practices, and full API reference. High-performance C# client for message broker." />
+    <meta name="keywords" content="QortexMQ.Client, .NET SDK, C# client, NuGet package, message broker, pub/sub, Dependency Injection, async/await, Background Service, API documentation, code examples, installation guide, configuration, best practices" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://qortexmq.dev/en/docs-sdk.html" />
+    <meta property="og:title" content="QortexMQ.Client .NET SDK Documentation | Complete Guide & API Reference" />
+    <meta property="og:description" content="Complete QortexMQ.Client .NET SDK documentation with installation guide, configuration examples, Dependency Injection setup, best practices, and full API reference." />
+    <meta property="og:site_name" content="QortexMQ" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://qortexmq.dev/en/docs-sdk.html" />
+    <meta property="twitter:title" content="QortexMQ.Client .NET SDK Documentation | Complete Guide & API Reference" />
+    <meta property="twitter:description" content="Complete QortexMQ.Client .NET SDK documentation with installation guide, configuration examples, Dependency Injection setup, best practices, and full API reference." />
+    <meta name="author" content="Oleg Trofimov" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="https://qortexmq.dev/en/docs-sdk.html" />
+    <link rel="alternate" hreflang="en" href="https://qortexmq.dev/en/docs-sdk.html" />
+    <link rel="alternate" hreflang="ru" href="https://qortexmq.dev/en/docs-sdk.html" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="manifest" href="../manifest.json?v=1.0.1" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://mc.yandex.ru data:; script-src 'self' https://www.googletagmanager.com https://mc.yandex.ru 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self'; frame-src https://mc.yandex.ru;" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <script>document.documentElement.classList.add('js')</script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "QortexMQ.Client .NET SDK Documentation | Complete Guide & API Reference",
+      "description": "Complete QortexMQ.Client .NET SDK documentation with installation guide, configuration examples, Dependency Injection setup, best practices, and full API reference.",
+      "about": "QortexMQ.Client .NET SDK",
+      "mainEntityOfPage": "https://qortexmq.dev/en/docs-sdk.html",
+      "author": {
+        "@type": "Person",
+        "name": "Oleg Trofimov",
+        "url": "https://qortexmq.dev"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "QortexMQ",
+        "url": "https://qortexmq.dev",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://qortexmq.dev/assets/img/logo-dark.svg"
+        }
+      },
+      "datePublished": "2024-01-01",
+      "dateModified": "2025-01-01",
+      "inLanguage": "en-US",
+      "keywords": ["QortexMQ.Client", ".NET SDK", "C#", "NuGet", "message broker", "pub/sub", "Dependency Injection", "async/await", "Background Service"],
+      "articleSection": "Documentation",
+      "wordCount": "5000",
+      "timeRequired": "PT15M",
+      "educationalLevel": "intermediate",
+      "learningResourceType": "tutorial"
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "QortexMQ",
+        "url": "https://qortexmq.dev"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="index.html">
+          <img class="logo-img" src="../assets/img/logo-dark.svg" alt="QortexMQ" />
+          <span class="name">Qortex<span class="mq">MQ</span></span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <!-- Documentation Dropdown -->
+          <div class="nav-dropdown">
+            <button class="nav-dropdown-toggle" aria-label="Documentation menu">
+              Documentation
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="nav-dropdown-menu">
+              <a href="quickstart.html">🚀 Quick Start</a>
+              <a href="docs-server.html">🐳 Server</a>
+              <a href="docs-sdk.html">📦 QortexMQ.Client</a>
+            </div>
+          </div>
+          <a href="downloads.html">Downloads</a>
+          <a href="license.html">License</a>
+          <a href="index.html#contact">Contact</a>
+          <!-- Language Switcher -->
+          <div class="lang-switcher">
+            <button id="langToggle" class="lang-toggle" aria-label="Switch language">
+              <span id="currentLang">EN</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div id="langDropdown" class="lang-dropdown">
+              <a href="../docs-sdk.html" data-lang="ru">Russian</a>
+              <a href="/en/docs-sdk.html" data-lang="en">English</a>
+            </div>
+          </div>
+          <div class="theme-switcher">
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+            <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon">
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <span id="themeLabel">Dark</span>
+          </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="container hero-inner">
+        <h1 class="reveal">QortexMQ.Client</h1>
+        <p class="reveal">High-performance .NET client for QortexMQ with async/await support, Dependency Injection and advanced configurations.</p>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Site navigation">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="quickstart.html">Documentation</a></li>
+            <li aria-current="page">QortexMQ.Client</li>
+          </ol>
+        </nav>
+
+        <!-- Documentation Navigation -->
+        <div class="card reveal">
+          <h2>📚 Documentation Navigation</h2>
+          <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 15px;">
+            <a href="quickstart.html" class="cta">← All Sections</a>
+            <a href="docs-server.html" class="cta">🐳 Server</a>
+            <a href="docs-sdk.html" class="cta" style="background: transparent; border: 2px solid var(--accent); color: var(--accent);">📦 QortexMQ.Client</a>
+          </div>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="card reveal toc-card">
+          <h2>📋 Table of Contents</h2>
+          <nav class="table-of-contents" aria-label="Documentation contents">
+            <ol>
+              <li><a href="#installation">📦 Installation</a></li>
+              <li><a href="#quick-start">🚀 Quick Start</a></li>
+              <li><a href="#configuration">⚙️ Configuration</a></li>
+              <li><a href="#examples">📝 Usage Examples</a></li>
+              <li><a href="#api-reference">📖 API Reference</a></li>
+              <li><a href="#troubleshooting">🔍 Troubleshooting</a></li>
+              <li><a href="#best-practices">⭐ Best Practices</a></li>
+              <li><a href="#resources">📚 Additional Resources</a></li>
+            </ol>
+          </nav>
+        </div>
+
+        <!-- Installation -->
+        <div class="card reveal" id="installation">
+          <h2>📦 Installation</h2>
+          <p>Add the QortexMQ.Client package to your project via NuGet:</p>
+          
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">Terminal</div>
+                <button class="copy-icon" onclick="copyCode('nuget-code')" title="Copy">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-body" id="nuget-code">
+              <div><span class="prompt">$</span> dotnet add package QortexMQ.Client</div>
+            </div>
+          </div>
+
+          <p style="margin-top: 15px;">Or via Package Manager Console in Visual Studio:</p>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">Package Manager</div>
+                <button class="copy-icon" onclick="copyCode('pm-code')" title="Copy">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-body" id="pm-code">
+              <div><span class="prompt">PM></span> Install-Package QortexMQ.Client</div>
+            </div>
+          </div>
+
+          <div class="info-box" style="margin-top:16px;">
+            <strong>Requirements:</strong>
+            <ul style="margin:8px 0 0 0;">
+              <li>.NET 6.0 or higher</li>
+              <li>Running QortexMQ server</li>
+              <li>Microsoft.Extensions.Logging (optional, for logging)</li>
+              <li>Microsoft.Extensions.DependencyInjection (for DI integration)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Quick Start -->
+        <div class="card reveal" id="quick-start">
+          <h2>🚀 Quick Start</h2>
+          
+          <h3>Simple Usage</h3>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">Program.cs</div>
+                <button class="copy-icon" onclick="copyCode('simple-code')" title="Copy">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-body" id="simple-code">
+              <div>using QortexMQ;</div>
+              <div>  </div>
+              <div>// Creating client</div>
+              <div>await using var client = new QortexMqClient("127.0.0.1", 9090);</div>
+              <div>await client.ConnectAsync();</div>
+              <div>  </div>
+              <div>// Subscribing to messages</div>
+              <div>await client.SubscribeAsync&lt;string&gt;("topic1", async message =></div>
+              <div>{</div>
+              <div class="indent-4">    Console.WriteLine($"Received: {message}");</div>
+              <div class="indent-4">    await Task.Delay(100); // Simulating processing</div>
+              <div>});</div>
+              <div>  </div>
+              <div>// Publishing message</div>
+              <div>await client.PublishAsync("topic1", "Hello World");</div>
+              <div>  </div>
+              <div>Console.WriteLine("Press any key to exit...");</div>
+              <div>Console.ReadKey();</div>
+            </div>
+          </div>
+
+          <h3>With Dependency Injection</h3>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">Program.cs</div>
+                <button class="copy-icon" onclick="copyCode('di-code')" title="Copy">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="terminal-body" id="di-code">
+              <div>using Microsoft.Extensions.DependencyInjection;</div>
+              <div>using Microsoft.Extensions.Hosting;</div>
+              <div>using QortexMQ.DependencyInjection;</div>
+              <div>  </div>
+              <div>var host = Host.CreateDefaultBuilder()</div>
+              <div class="indent-4">    .ConfigureServices((_, services) =></div>
+              <div class="indent-4">    {</div>
+              <div class="indent-8">        // Register QortexMQ client</div>
+              <div class="indent-8">        services.AddQortexMqClient(config =></div>
+              <div class="indent-8">        {</div>
+              <div class="indent-12">            config.ServerAddress = "localhost";</div>
+              <div class="indent-12">            config.ServerPort = 9090;</div>
+              <div class="indent-12">            config.EnableAutoReconnection = true;</div>
+              <div class="indent-8">        });</div>
+              <div>  </div>
+              <div class="indent-8">        // Register your services</div>
+              <div class="indent-8">        services.AddTransient&lt;MessageService&gt;();</div>
+              <div class="indent-4">    })</div>
+              <div class="indent-4">    .Build();</div>
+              <div>  </div>
+              <div>await host.StartAsync();</div>
+              <div>  </div>
+              <div>// Get service from DI container</div>
+              <div>var messageService = host.Services.GetRequiredService&lt;MessageService&gt;();</div>
+              <div>await messageService.StartAsync();</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Configuration -->
+        <div class="card reveal" id="configuration">
+          <h2>⚙️ Configuration</h2>
+          
+          <h3>Advanced Configuration</h3>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">Program.cs</div>
+                <button class="copy-icon" onclick="copyCode('advanced-config-code')" title="Copy">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+          </div>
+              </div>
+            <div class="terminal-body" id="advanced-config-code">
+              <div>using Microsoft.Extensions.Logging;</div>
+              <div>using QortexMQ;</div>
+              <div>using QortexMQ.Client.Models;</div>
+              <div>  </div>
+              <div>// Creating logger</div>
+              <div>using var loggerFactory = LoggerFactory.Create(builder =></div>
+              <div>{</div>
+              <div class="indent-4">    builder.AddConsole();</div>
+              <div class="indent-4">    builder.SetMinimumLevel(LogLevel.Information);</div>
+              <div>});</div>
+              <div>  </div>
+              <div>// Configuring client</div>
+              <div>var configuration = new ClientConfiguration</div>
+              <div>{</div>
+              <div class="indent-4">    ServerAddress = "127.0.0.1",</div>
+              <div class="indent-4">    ServerPort = 9090,</div>
+              <div class="indent-4">    ReconnectionDelayMs = 2000,</div>
+              <div class="indent-4">    MaxReconnectionAttempts = 5,</div>
+              <div class="indent-4">    EnableAutoReconnection = true,</div>
+              <div class="indent-4">    Logger = loggerFactory</div>
+              <div>};</div>
+              <div>  </div>
+              <div>// Creating client</div>
+              <div>await using var client = new QortexMqClient(configuration);</div>
+            </div>
+          </div>
+
+          <h3>Builder Pattern</h3>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">Program.cs</div>
+                <button class="copy-icon" onclick="copyCode('builder-code')" title="Copy">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+          </div>
+              </div>
+            <div class="terminal-body" id="builder-code">
+              <div>using QortexMQ;</div>
+              <div>  </div>
+              <div>// Creating client using Builder Pattern</div>
+              <div>await using var client = QortexMqClientFactory.CreateBuilder()</div>
+              <div>    .WithServerAddress("127.0.0.1")</div>
+              <div>    .WithServerPort(9090)</div>
+              <div>    .WithReconnectionDelay(3000)</div>
+              <div>    .WithMaxReconnectionAttempts(10)</div>
+              <div>    .WithAutoReconnection(true)</div>
+              <div>    .Build();</div>
+              <div>  </div>
+              <div>await client.ConnectAsync();</div>
+            </div>
+          </div>
+
+          <h3>Configuration from appsettings.json</h3>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">appsettings.json</div>
+                <button class="copy-icon" onclick="copyCode('appsettings-code')" title="Copy">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+          </div>
+              </div>
+            <div class="terminal-body" id="appsettings-code">
+              <div>{</div>
+              <div>  "Logging": {</div>
+              <div>    "LogLevel": {</div>
+              <div>      "Default": "Information",</div>
+              <div>      "QortexMQ": "Debug"</div>
+              <div>    }</div>
+              <div>  },</div>
+              <div>  "QortexMQ": {</div>
+              <div>    "ServerAddress": "localhost",</div>
+              <div>    "ServerPort": 9090,</div>
+              <div>    "MaxReconnectionAttempts": 0,</div>
+              <div>    "EnableAutoReconnection": true</div>
+              <div>  }</div>
+              <div>}</div>
+            </div>
+          </div>
+
+          <h3>Registration with Configuration</h3>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">Program.cs</div>
+                <button class="copy-icon" onclick="copyCode('config-di-code')" title="Copy">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+          </div>
+              </div>
+            <div class="terminal-body" id="config-di-code">
+              <div>using Microsoft.Extensions.Configuration;</div>
+              <div>using Microsoft.Extensions.DependencyInjection;</div>
+              <div>using Microsoft.Extensions.Hosting;</div>
+              <div>using QortexMQ.DependencyInjection;</div>
+              <div>  </div>
+              <div>var host = Host.CreateDefaultBuilder()</div>
+              <div>    .ConfigureAppConfiguration((context, config) =></div>
+              <div>    {</div>
+              <div>        config.AddJsonFile("appsettings.example.json", optional: false);</div>
+              <div>    })</div>
+              <div>    .ConfigureServices((context, services) =></div>
+              <div>    {</div>
+              <div>        // Registration from configuration</div>
+              <div>        services.AddQortexMqClient(context.Configuration);</div>
+              <div>    })</div>
+              <div>    .Build();</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Usage Examples -->
+        <div class="card reveal" id="examples">
+          <h2>📝 Usage Examples</h2>
+          
+          <h3>Working with Custom Message Types</h3>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">Program.cs</div>
+                <button class="copy-icon" onclick="copyCode('custom-message-code')" title="Copy">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+          </div>
+              </div>
+            <div class="terminal-body" id="custom-message-code">
+              <div>using QortexMQ;</div>
+              <div>using QortexMQ.Common.Enums;</div>
+              <div>  </div>
+              <div>// Defining custom message type</div>
+              <div>public class UserMessage</div>
+              <div>{</div>
+              <div class="indent-4">    public string Id { get; set; } = string.Empty;</div>
+              <div class="indent-4">    public string Content { get; set; } = string.Empty;</div>
+              <div class="indent-4">    public DateTime Timestamp { get; set; }</div>
+              <div>}</div>
+              <div>  </div>
+              <div>await using var client = new QortexMqClient("127.0.0.1", 9090);</div>
+              <div>await client.ConnectAsync();</div>
+              <div>  </div>
+              <div>// Subscribing to custom type</div>
+              <div>await client.SubscribeAsync&lt;UserMessage&gt;("user-topic", async message =></div>
+              <div>{</div>
+              <div class="indent-4">    Console.WriteLine($"Received: {message.Id} - {message.Content}");</div>
+              <div class="indent-4">    await Task.Delay(150);</div>
+              <div>}, maxHandlers: 3);</div>
+              <div>  </div>
+              <div>// Publishing custom message</div>
+              <div>var userMessage = new UserMessage</div>
+              <div>{</div>
+              <div class="indent-4">    Id = Guid.NewGuid().ToString(),</div>
+              <div class="indent-4">    Content = "Hello from custom message",</div>
+              <div class="indent-4">    Timestamp = DateTime.UtcNow</div>
+              <div>};</div>
+              <div>  </div>
+              <div>await client.PublishAsync("user-topic", userMessage, </div>
+              <div class="indent-4">    MessagePriority.High, MessageBroadcastType.Single);</div>
+            </div>
+          </div>
+
+          <h3>Error Handling</h3>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">Program.cs</div>
+                <button class="copy-icon" onclick="copyCode('error-handling-code')" title="Copy">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+          </div>
+              </div>
+            <div class="terminal-body" id="error-handling-code">
+              <div>using QortexMQ;</div>
+              <div>  </div>
+              <div>try</div>
+              <div>{</div>
+              <div class="indent-4">    await using var client = new QortexMqClient("127.0.0.1", 9090);</div>
+              <div class="indent-4">    await client.ConnectAsync();</div>
+              <div>  </div>
+              <div class="indent-4">    // Subscription with error handling</div>
+              <div class="indent-4">    await client.SubscribeAsync&lt;string&gt;("error-topic", async message =></div>
+              <div class="indent-4">    {</div>
+              <div class="indent-8">        try</div>
+              <div class="indent-8">        {</div>
+              <div class="indent-12">            if (message.Contains("error"))</div>
+              <div class="indent-12">            {</div>
+              <div class="indent-16">                throw new Exception("Simulated processing error");</div>
+              <div class="indent-12">            }</div>
+              <div class="indent-12">            Console.WriteLine($"Processed: {message}");</div>
+              <div class="indent-12">            await Task.Delay(100);</div>
+              <div class="indent-8">        }</div>
+              <div class="indent-8">        catch (Exception ex)</div>
+              <div class="indent-8">        {</div>
+              <div class="indent-12">            Console.WriteLine($"Processing error: {ex.Message}");</div>
+              <div class="indent-12">            throw; // Re-throw for sending FAILED ACK</div>
+              <div class="indent-8">        }</div>
+              <div class="indent-4">    }, maxHandlers: 1, sendFailedAckOnException: false);</div>
+              <div>  </div>
+              <div class="indent-4">    // Publishing messages</div>
+              <div class="indent-4">    await client.PublishAsync("error-topic", "Normal message");</div>
+              <div class="indent-4">    await client.PublishAsync("error-topic", "This will cause error");</div>
+              <div>}</div>
+              <div>catch (Exception ex)</div>
+              <div>{</div>
+              <div class="indent-4">    Console.WriteLine($"Client error: {ex.Message}");</div>
+              <div>}</div>
+            </div>
+          </div>
+
+          <h3>Background Service</h3>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">MessageProcessorService.cs</div>
+                <button class="copy-icon" onclick="copyCode('background-service-code')" title="Copy">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+          </div>
+              </div>
+            <div class="terminal-body" id="background-service-code">
+              <div>using Microsoft.Extensions.Hosting;</div>
+              <div>using Microsoft.Extensions.Logging;</div>
+              <div>using QortexMQ;</div>
+              <div>  </div>
+              <div>public class MessageProcessorService : BackgroundService</div>
+              <div>{</div>
+              <div class="indent-4">    private readonly IQortexMqClient _client;</div>
+              <div class="indent-4">    private readonly ILogger&lt;MessageProcessorService&gt; _logger;</div>
+              <div>  </div>
+              <div class="indent-4">    public MessageProcessorService(IQortexMqClient client, </div>
+              <div class="indent-8">        ILogger&lt;MessageProcessorService&gt; logger)</div>
+              <div class="indent-4">    {</div>
+              <div class="indent-8">        _client = client;</div>
+              <div class="indent-8">        _logger = logger;</div>
+              <div class="indent-4">    }</div>
+              <div>  </div>
+              <div class="indent-4">    protected override async Task ExecuteAsync(CancellationToken stoppingToken)</div>
+              <div class="indent-4">    {</div>
+              <div class="indent-8">        await _client.ConnectAsync(stoppingToken);</div>
+              <div>  </div>
+              <div class="indent-8">        await _client.SubscribeAsync&lt;string&gt;("background-topic", async message =></div>
+              <div class="indent-8">        {</div>
+              <div class="indent-12">            _logger.LogInformation("Processing: {Message}", message);</div>
+              <div class="indent-12">            await Task.Delay(500, stoppingToken);</div>
+              <div class="indent-8">        });</div>
+              <div>  </div>
+              <div class="indent-8">        // Keep service running</div>
+              <div class="indent-8">        while (!stoppingToken.IsCancellationRequested)</div>
+              <div class="indent-8">        {</div>
+              <div class="indent-12">            await Task.Delay(1000, stoppingToken);</div>
+              <div class="indent-8">        }</div>
+              <div class="indent-4">    }</div>
+              <div>  </div>
+              <div class="indent-4">    public override async Task StopAsync(CancellationToken cancellationToken)</div>
+              <div class="indent-4">    {</div>
+              <div class="indent-8">        await _client.DisconnectAsync(cancellationToken);</div>
+              <div class="indent-8">        await base.StopAsync(cancellationToken);</div>
+              <div class="indent-4">    }</div>
+              <div>}</div>
+            </div>
+          </div>
+
+          <h3>Connection State Monitoring</h3>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">Program.cs</div>
+                <button class="copy-icon" onclick="copyCode('connection-monitoring-code')" title="Copy">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+          </div>
+              </div>
+            <div class="terminal-body" id="connection-monitoring-code">
+              <div>using QortexMQ;</div>
+              <div>  </div>
+              <div>await using var client = new QortexMqClient("127.0.0.1", 9090);</div>
+              <div>  </div>
+              <div>// Subscribe to connection state change events</div>
+              <div>client.ConnectionStateChanged += (_, args) =></div>
+              <div>{</div>
+              <div class="indent-4">    Console.WriteLine($"Connection state changed: {args.IsConnected}");</div>
+              <div class="indent-4">    if (!string.IsNullOrEmpty(args.ErrorMessage))</div>
+              <div class="indent-4">    {</div>
+              <div class="indent-8">        Console.WriteLine($"Error: {args.ErrorMessage}");</div>
+              <div class="indent-4">    }</div>
+              <div>};</div>
+              <div>  </div>
+              <div>await client.ConnectAsync();</div>
+              <div>  </div>
+              <div>// Get subscription information</div>
+              <div>var subscriptions = client.GetSubscriptions();</div>
+              <div>foreach (var subscription in subscriptions)</div>
+              <div>{</div>
+              <div class="indent-4">    Console.WriteLine($"Topic: {subscription.Key}, " +</div>
+              <div class="indent-8">        $"Type: {subscription.Value.MessageType.Name}, " +</div>
+              <div class="indent-8">        $"Active handlers: {subscription.Value.ActiveHandlers}");</div>
+              <div>}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- API Reference -->
+        <div class="card reveal" id="api-reference">
+          <h2>📖 API Reference</h2>
+          
+          <h3>IQortexMqClient</h3>
+          <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+            <thead>
+              <tr style="background: var(--bg-secondary);">
+                <th style="padding: 10px; border: 1px solid var(--border); text-align: left;">Method</th>
+                <th style="padding: 10px; border: 1px solid var(--border); text-align: left;">Description</th>
+                <th style="padding: 10px; border: 1px solid var(--border); text-align: left;">Returns</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>ConnectAsync(CancellationToken)</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Connect to server</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Task</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>DisconnectAsync(CancellationToken)</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Disconnect from server</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Task</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>PublishAsync&lt;T&gt;(topic, message, priority, broadcastType)</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Publish message to topic</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Task&lt;Guid&gt;</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>SubscribeAsync&lt;T&gt;(topic, handler, maxHandlers, sendFailedAckOnException)</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Subscribe to topic</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Task</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>UnsubscribeAsync(topic, CancellationToken)</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Unsubscribe from topic</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Task</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>GetSubscriptions()</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Get subscription information</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">IReadOnlyDictionary&lt;string, SubscriptionInfo&gt;</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>IsSubscribed(topic)</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Check subscription to topic</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">bool</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Properties</h3>
+          <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+            <thead>
+              <tr style="background: var(--bg-secondary);">
+                <th style="padding: 10px; border: 1px solid var(--border); text-align: left;">Property</th>
+                <th style="padding: 10px; border: 1px solid var(--border); text-align: left;">Type</th>
+                <th style="padding: 10px; border: 1px solid var(--border); text-align: left;">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>Connected</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">bool</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Connection status to server</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>ConnectionStateChanged</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">EventHandler&lt;ConnectionStateChangedEventArgs&gt;</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Connection state change event</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>SubscriptionCount</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">int</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Number of active subscriptions</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>ClientConfiguration</h3>
+          <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+            <thead>
+              <tr style="background: var(--bg-secondary);">
+                <th style="padding: 10px; border: 1px solid var(--border); text-align: left;">Property</th>
+                <th style="padding: 10px; border: 1px solid var(--border); text-align: left;">Type</th>
+                <th style="padding: 10px; border: 1px solid var(--border); text-align: left;">Default</th>
+                <th style="padding: 10px; border: 1px solid var(--border); text-align: left;">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>ServerAddress</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">string</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">""</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">QortexMQ server address</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>ServerPort</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">int</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">0</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">QortexMQ server port</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>ReconnectionDelayMs</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">int</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">10000</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Reconnection delay (ms)</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>MaxReconnectionAttempts</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">int</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">0</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Maximum reconnection attempts (0 = unlimited)</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>EnableAutoReconnection</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">bool</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">true</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Enable automatic reconnection</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>Logger</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">ILoggerFactory?</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">null</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Logger factory for logging</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Enums</h3>
+          <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+            <thead>
+              <tr style="background: var(--bg-secondary);">
+                <th style="padding: 10px; border: 1px solid var(--border); text-align: left;">Enum</th>
+                <th style="padding: 10px; border: 1px solid var(--border); text-align: left;">Values</th>
+                <th style="padding: 10px; border: 1px solid var(--border); text-align: left;">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>MessagePriority</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Low (0), High (1)</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Message priority</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>MessageBroadcastType</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Single, Broadcast</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Message broadcast type</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);"><code>MessageStatus</code></td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Ok (200), Failed (500)</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Message processing status</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Troubleshooting -->
+        <div class="card reveal" id="troubleshooting">
+          <h2>🔍 Troubleshooting</h2>
+          
+          <h3>Problem: Cannot connect to server</h3>
+          <ul>
+            <li>Make sure QortexMQ server is running on the specified address and port</li>
+            <li>Check the correctness of address and port in configuration</li>
+            <li>Ensure port 9090 is not blocked by firewall</li>
+            <li>Check network connection between client and server</li>
+          </ul>
+
+          <h3>Problem: Messages are not delivered</h3>
+          <ul>
+            <li>Check the correctness of topic name (case sensitive)</li>
+            <li>Make sure subscriber is active and connected to server</li>
+            <li>Check server logs for errors</li>
+            <li>Ensure message handlers don't throw exceptions</li>
+          </ul>
+
+          <h3>Problem: Dependency Injection errors</h3>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">Program.cs</div>
+                <button class="copy-icon" onclick="copyCode('fix-di-code')" title="Copy">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+          </div>
+              </div>
+            <div class="terminal-body" id="fix-di-code">
+              <div>// Make sure you added the correct using statements</div>
+              <div>using QortexMQ.DependencyInjection;</div>
+              <div>  </div>
+              <div>// And properly registered the service</div>
+              <div>services.AddQortexMqClient(config =></div>
+              <div>{</div>
+              <div>    config.ServerAddress = "localhost";</div>
+              <div>    config.ServerPort = 9090;</div>
+              <div>    config.EnableAutoReconnection = true;</div>
+              <div>});</div>
+            </div>
+          </div>
+
+          <h3>Problem: Serialization errors</h3>
+          <ul>
+            <li>Make sure your custom message types have public properties</li>
+            <li>Check that message types have default constructor</li>
+            <li>Ensure all properties are serializable (no circular references)</li>
+          </ul>
+
+          <h3>Problem: High memory consumption</h3>
+          <ul>
+            <li>Check the number of active message handlers (maxHandlers)</li>
+            <li>Make sure message handlers don't accumulate data</li>
+            <li>Use proper resource management (using, DisposeAsync)</li>
+          </ul>
+
+          <h3>Problem: Slow message processing</h3>
+          <ul>
+            <li>Increase the number of handlers (maxHandlers) for parallel processing</li>
+            <li>Optimize message processing logic</li>
+            <li>Use asynchronous operations in handlers</li>
+            <li>Check network performance between client and server</li>
+          </ul>
+
+          <h3>Enabling detailed logging</h3>
+          <div class="terminal" style="margin-top:8px;">
+            <div class="terminal-header">
+              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+              <div class="right-group">
+                <div class="muted">appsettings.json</div>
+                <button class="copy-icon" onclick="copyCode('logging-config-code')" title="Copy">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+          </div>
+              </div>
+            <div class="terminal-body" id="logging-config-code">
+              <div>{</div>
+              <div>  "Logging": {</div>
+              <div>    "LogLevel": {</div>
+              <div>      "Default": "Information",</div>
+              <div>      "QortexMQ": "Debug",</div>
+              <div>      "QortexMQ.Connection": "Trace",</div>
+              <div>      "QortexMQ.Subscription": "Trace"</div>
+              <div>    }</div>
+              <div>  }</div>
+              <div>}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="card reveal" id="best-practices">
+          <h2>⭐ Best Practices</h2>
+          
+          <h3>Resource Management</h3>
+          <ul>
+            <li><strong>Always use using:</strong> <code>await using var client = new QortexMqClient(...)</code></li>
+            <li><strong>Properly handle CancellationToken:</strong> Pass cancellation token to all async operations</li>
+            <li><strong>Use DisposeAsync:</strong> For proper resource disposal in async context</li>
+          </ul>
+
+          <h3>Error Handling</h3>
+          <ul>
+            <li><strong>Handle exceptions in message handlers:</strong> Use try-catch blocks</li>
+            <li><strong>Configure sendFailedAckOnException:</strong> Determine whether to send FAILED ACK on errors</li>
+            <li><strong>Log errors:</strong> Use ILogger for recording errors and debug information</li>
+          </ul>
+
+          <h3>Performance</h3>
+          <ul>
+            <li><strong>Configure maxHandlers:</strong> Increase the number of handlers for parallel processing</li>
+            <li><strong>Use asynchronous operations:</strong> Don't block threads in message handlers</li>
+            <li><strong>Monitor connection state:</strong> Subscribe to ConnectionStateChanged events</li>
+          </ul>
+
+          <h3>Configuration</h3>
+          <ul>
+            <li><strong>Use appsettings.json:</strong> For configuration in production environment</li>
+            <li><strong>Configure logging:</strong> Enable detailed logging for debugging</li>
+            <li><strong>Configure reconnection:</strong> Enable automatic reconnection for reliability</li>
+          </ul>
+
+          <h3>Architecture</h3>
+          <ul>
+            <li><strong>Use Dependency Injection:</strong> Register client in DI container</li>
+            <li><strong>Create services:</strong> Encapsulate QortexMQ logic in separate services</li>
+            <li><strong>Use Background Services:</strong> For long-lived subscriptions</li>
+          </ul>
+        </div>
+
+        <!-- Additional Resources -->
+        <div class="card reveal" id="resources">
+          <h2>📚 Additional Resources</h2>
+          <ul>
+            <li><a href="docs-server.html">Server Documentation</a></li>
+            <li><a href="downloads.html">Download QortexMQ</a></li>
+            <li><a href="https://www.nuget.org/packages/QortexMQ.Client/" target="_blank">NuGet Package</a></li>
+            <li><a href="license.html">License</a></li>
+            <li><a href="index.html#contact">Contact and Support</a></li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <a class="cta" href="quickstart.html">← All Documentation Sections</a>
+      </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 15l-6-6-6 6"/>
+      </svg>
+    </button>
+
+    <script src="../assets/js/theme.js" defer></script>
+    <script src="../config/site.js" defer></script>
+    <script src="../config/contacts.js" defer></script>
+    <script src="../config/analytics.js" defer></script>
+    <script src="../config/validator.js" defer></script>
+    <script src="../assets/js/animations.js" defer></script>
+    <script src="../assets/js/main.js" defer></script>
+
+    <script>
+      function copyCode(elementId) {
+        const element = document.getElementById(elementId);
+        const text = element.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          // Show copy notification
+          const button = element.parentElement.querySelector('.copy-icon');
+          const originalTitle = button.title;
+          button.title = 'Copied!';
+          setTimeout(() => {
+            button.title = originalTitle;
+          }, 2000);
+        });
+      }
+
+      // Back to top button
+      document.addEventListener('DOMContentLoaded', function() {
+        const backToTopButton = document.getElementById('backToTop');
+        
+        // Show/hide button on scroll
+        window.addEventListener('scroll', function() {
+          if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('visible');
+          } else {
+            backToTopButton.classList.remove('visible');
+          }
+        });
+        
+        // Smooth scroll to top
+        backToTopButton.addEventListener('click', function() {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+
+        // Highlight active section in table of contents
+        const tocLinks = document.querySelectorAll('.table-of-contents a');
+        const sections = document.querySelectorAll('[id]');
+        
+        function updateActiveSection() {
+          let current = '';
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if (window.pageYOffset >= sectionTop) {
+              current = section.getAttribute('id');
+            }
+          });
+          
+          tocLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+              link.classList.add('active');
+            }
+          });
+        }
+        
+        window.addEventListener('scroll', updateActiveSection);
+        updateActiveSection(); // Call on load
+      });
+    </script>
+
+    <!-- Analytics - IDs берутся из analytics.js -->
+    <script>
+      // Google Analytics
+      if (typeof isAnalyticsEnabled === 'function' && isAnalyticsEnabled('google') && typeof getGoogleAnalyticsId === 'function' && getGoogleAnalyticsId()) {
+        const gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${getGoogleAnalyticsId()}`;
+        document.head.appendChild(gaScript);
+        
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);} 
+        gtag('js', new Date()); 
+        gtag('config', getGoogleAnalyticsId());
+      }
+      
+      // Yandex.Metrika
+      if (typeof isAnalyticsEnabled === 'function' && isAnalyticsEnabled('yandex') && typeof getYandexMetrikaId === 'function' && getYandexMetrikaId()) {
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        ym(getYandexMetrikaId(), "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
+        
+        // Noscript fallback
+        const noscript = document.createElement('noscript');
+        noscript.innerHTML = `<div><img src="https://mc.yandex.ru/watch/${getYandexMetrikaId()}" style="position:absolute; left:-9999px;" alt=""/></div>`;
+        document.body.appendChild(noscript);
+      }
+    </script>
+  </body>
+</html>

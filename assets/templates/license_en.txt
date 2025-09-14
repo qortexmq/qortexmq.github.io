@@ -1,0 +1,91 @@
+LICENSE AGREEMENT
+QortexMQ - Message Broker
+
+Version: All versions
+Date: 2025
+Author: Oleg Trofimov
+
+1. SUBJECT OF THE AGREEMENT
+
+This License Agreement governs the terms of use of the "QortexMQ" software, which includes the message broker and related components.
+
+2. RIGHTS AND LIMITATIONS
+
+2.1 Permitted Use
+The Licensee is granted a non-exclusive, non-transferable right to use the Software solely for the following purposes:
+- Education and technology learning
+- Personal projects
+- Non-commercial development
+- Research activities
+- Testing and experiments
+
+2.2 Commercial Use
+Commercial use of the Software is possible only with written permission from the developer. To obtain permission, contact: {{EMAIL}}
+
+Without permission, the use of the Software is prohibited in the following cases:
+- Commercial activities of any kind
+- Sale or resale of the Software
+- Inclusion of the Software in commercial products
+- Use in commercial services
+- Profiting from the use of the Software
+
+3. DISTRIBUTION RESTRICTIONS
+
+3.1 Prohibited:
+- Selling, renting, or otherwise commercially distributing the Software
+- Providing access to the Software to third parties for commercial use
+- Using the Software in commercial SaaS solutions
+- Integrating the Software into commercial platforms
+- Profiting in any way
+
+3.2 Permitted:
+- Using the Software in educational institutions
+- Applying the Software in non-commercial projects
+- Using the Software for learning and research
+- Applying the Software in personal non-commercial projects
+- Commercial use with permission
+
+4. SOURCE CODE
+
+4.1 Availability
+The source code of the Software is closed and is not provided to users. Access to the source code is limited and is granted only with special permission from the developer.
+
+4.2 Modification
+Modification of the Software's source code is prohibited. The Licensee may only use pre-compiled binary files and SDKs provided by the developer.
+
+5. DISCLAIMER OF WARRANTIES
+
+The Software is provided "as is" without any warranties. The author is not responsible for:
+- Any losses arising from the use of the Software
+- Compatibility with other software products
+- Compliance with user requirements
+- Absence of errors in the Software
+
+6. LIMITATION OF LIABILITY
+
+To the maximum extent permitted by applicable law, the author shall not be liable for any indirect, incidental, special, or consequential damages, including lost profits.
+
+7. COMPLIANCE WITH LAW
+
+This Agreement is made in accordance with:
+- Civil Code of the Russian Federation
+- Federal Law "On Information, Information Technologies and Information Protection"
+- Other applicable regulatory acts of the Russian Federation
+
+8. TERMINATION
+
+The license automatically terminates if any of the terms of this Agreement are violated. Upon termination of the license, the user must cease using the Software.
+
+9. AMENDMENTS TO THE AGREEMENT
+
+The author reserves the right to change the terms of this Agreement. Changes take effect from the moment of their publication.
+
+10. CONTACT INFORMATION
+
+For questions related to this Agreement, contact:
+- Email: {{EMAIL}}
+- Website: {{SITE_URL}}
+
+IMPORTANT: Use of the Software implies acceptance of all terms of this License Agreement. If you do not agree to the terms, do not use the Software.
+
+Note: This license is specifically designed for Russian users and complies with the requirements of Russian legislation in the field of intellectual property and software.

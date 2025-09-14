@@ -1,0 +1,22 @@
+{
+  "name": "QortexMQ — Message Broker for Developers",
+  "short_name": "QortexMQ",
+  "description": "Fast and simple message broker with cluster support",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0f14",
+  "theme_color": "#5af48e",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["developer", "productivity"],
+  "lang": "ru",
+  "version": "1.0.1"
+}
+
+
