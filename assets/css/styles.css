@@ -502,7 +502,6 @@ button.theme-toggle,
     overflow-x: auto;
 }
 .terminal-body div {
-  white-space: pre;
   font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
   line-height: 1.5;
   margin: 0;
