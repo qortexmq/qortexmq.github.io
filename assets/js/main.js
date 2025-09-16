@@ -189,25 +189,10 @@
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => { setYear(); navMenu(); documentationDropdown(); languageSwitcher(); registerSW(); bindEvents(); });
+    document.addEventListener('DOMContentLoaded', () => { setYear(); navMenu(); documentationDropdown(); languageSwitcher();  bindEvents(); });
   } else { setYear(); navMenu(); documentationDropdown(); languageSwitcher(); registerSW(); bindEvents(); }
 })();
 
-function registerSW() {
-  if ('serviceWorker' in navigator) {
-    if (location.hostname === 'qortexmq.github.io') {
-      navigator.serviceWorker.register('/sw.js').catch(() => {});
-    } else {
-      // In development, ensure no SW remains registered
-      try {
-        navigator.serviceWorker.getRegistrations().then(rs => rs.forEach(r => r.unregister()));
-        if (window.caches && caches.keys) {
-          caches.keys().then(keys => keys.forEach(k => caches.delete(k)));
-        }
-      } catch {}
-    }
-  }
-}
 
 function bindEvents() {
   const track = (name, params) => {
