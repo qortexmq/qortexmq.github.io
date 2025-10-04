@@ -1,49 +1,79 @@
 <!doctype html>
 <html lang="ru-RU" data-theme="dark">
   <head>
+ 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>QortexMQ — Высокопроизводительный брокер сообщений | .NET SDK</title>
-    <meta name="description" content="QortexMQ — современный высокопроизводительный брокер сообщений с поддержкой .NET SDK. Быстрая и надежная альтернатива Kafka и RabbitMQ. Скачать бесплатно." />
-    <meta name="keywords" content="QortexMQ, брокер сообщений, message broker, очереди сообщений, .NET SDK, C# клиент, Kafka альтернатива, RabbitMQ альтернатива, event streaming, pub/sub, микросервисы, высокопроизводительный, кластерная поддержка" />
+
+    <!-- ОСНОВНЫЕ ТЕГИ - переработаны для лучшей конверсии -->
+    <title>QortexMQ: Легковесный брокер сообщений для .NET | Альтернатива Kafka и RabbitMQ</title>
+    <meta name="description" content="🚀 Запустите QortexMQ за 5 минут! Легковесный брокер сообщений для .NET с гарантированной доставкой. Проще чем Kafka, быстрее чем RabbitMQ. Бесплатно для проектов." />
+
+    <!-- КЛЮЧЕВЫЕ СЛОВА - сфокусированы на боли пользователей -->
+    <meta name="keywords" content="брокер сообщений .NET, очереди сообщений C#, альтернатива Kafka, замена RabbitMQ, микросервисы .NET, event streaming, высокопроизводительные очереди, легковесный message broker, .NET SDK, установка за 5 минут" />
+
+    <!-- АВТОРСТВО И ЯЗЫК -->
     <meta name="author" content="Oleg Trofimov" />
+    <meta name="language" content="Russian" />
+
+    <!-- SEO И ИНДЕКСАЦИЯ - усилены -->
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+    <!-- ГЕО И АУДИТОРИЯ -->
+    <meta name="geo.region" content="RU" />
+    <meta name="geo.placename" content="Russia" />
+    <meta name="target" content="all" />
+    <meta name="audience" content="developers, .NET programmers, software architects, system administrators" />
+
+    <!-- КАНОНИЧЕСКИЕ ССЫЛКИ И ЯЗЫКИ -->
     <link rel="canonical" href="https://qortexmq.github.io/" />
     <link rel="alternate" hreflang="ru" href="https://qortexmq.github.io/" />
     <link rel="alternate" hreflang="en" href="https://qortexmq.github.io/en/" />
     <link rel="alternate" hreflang="x-default" href="https://qortexmq.github.io/" />
-    <meta name="language" content="Russian" />
-    <meta name="geo.region" content="RU" />
-    <meta name="geo.placename" content="Russia" />
+
+    <!-- ТЕХНИЧЕСКИЕ МЕТА-ТЕГИ -->
     <meta name="distribution" content="global" />
-    <meta name="rating" content="general" />
-    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="safe for kids" />
+    <meta name="revisit-after" content="2 days" />
+    <meta name="generator" content="Hand-coded" />
+
+    <!-- МОБИЛЬНАЯ ОПТИМИЗАЦИЯ -->
     <meta name="theme-color" content="#6366f1" />
     <meta name="msapplication-TileColor" content="#6366f1" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- OPEN GRAPH - переработаны для кликабельности -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="QortexMQ" />
-    <meta property="og:title" content="QortexMQ — Высокопроизводительный брокер сообщений | .NET SDK" />
-    <meta property="og:description" content="Современный высокопроизводительный брокер сообщений с поддержкой .NET SDK. Быстрая и надежная альтернатива Kafka и RabbitMQ. Скачать бесплатно." />
+    <meta property="og:site_name" content="QortexMQ - Брокер сообщений для .NET" />
+    <meta property="og:title" content="QortexMQ: Запуск за 5 минут 🚀 | Альтернатива Kafka для .NET" />
+    <meta property="og:description" content="Легковесный брокер сообщений с .NET SDK. Гарантированная доставка, кластерная поддержка, проще чем Kafka. Скачать бесплатно." />
     <meta property="og:url" content="https://qortexmq.github.io/" />
     <meta property="og:image" content="https://qortexmq.github.io/assets/img/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="QortexMQ - Высокопроизводительный брокер сообщений" />
+    <meta property="og:image:alt" content="QortexMQ - Запустите брокер сообщений за 5 минут" />
+    <meta property="og:locale" content="ru_RU" />
+
+    <!-- TWITTER CARD - улучшены для соцсетей -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@qortexmq" />
     <meta name="twitter:creator" content="@qortexmq" />
-    <meta name="twitter:title" content="QortexMQ — Высокопроизводительный брокер сообщений | .NET SDK" />
-    <meta name="twitter:description" content="Современный высокопроизводительный брокер сообщений с поддержкой .NET SDK. Быстрая и надежная альтернатива Kafka и RabbitMQ. Скачать бесплатно." />
+    <meta name="twitter:title" content="QortexMQ: Брокер сообщений для .NET разработчиков" />
+    <meta name="twitter:description" content="🚀 Запустите за 5 минут! Легковесная альтернатива Kafka с .NET SDK. Гарантированная доставка сообщений." />
     <meta name="twitter:image" content="https://qortexmq.github.io/assets/img/og-image.png" />
-    <meta name="twitter:image:alt" content="QortexMQ - Высокопроизводительный брокер сообщений" />
-    <!-- Verification placeholders -->
-    <meta name="google-site-verification" content="REPLACE_GOOGLE_VERIFICATION" />
-    <meta name="yandex-verification" content="REPLACE_YANDEX_VERIFICATION" />
+    <meta name="twitter:image:alt" content="QortexMQ - Быстрый старт за 5 минут" />
+
+    <!-- ДОПОЛНИТЕЛЬНЫЕ SEO-ТЕГИ ДЛЯ ПОИСКОВИКОВ -->
+    <meta name="classification" content="Software, Message Broker, .NET Development" />
+    <meta name="subject" content="Message Queue System for .NET Developers" />
+    <meta name="topic" content="Lightweight Message Broker Alternative" />
+    <meta name="summary" content="QortexMQ is a lightweight, high-performance message broker with .NET SDK support, designed as a simpler alternative to Kafka and RabbitMQ." />
+
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="manifest" href="manifest.json?v=1.0.1" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://mc.yandex.ru data:; script-src 'self' https://www.googletagmanager.com https://mc.yandex.ru 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self'; frame-src https://mc.yandex.ru;" />
@@ -54,9 +84,9 @@
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "QortexMQ",
-      "applicationCategory": "MessageBroker",
-      "operatingSystem": "Linux, macOS, Windows",
-      "description": "Высокопроизводительный брокер сообщений с поддержкой .NET SDK. Современная альтернатива Kafka и RabbitMQ для микросервисов и реального времени.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Windows, Linux, macOS, Docker",
+      "description": "Легковесный брокер сообщений для .NET с гарантированной доставкой. Альтернатива Kafka и RabbitMQ.",
       "url": "https://qortexmq.github.io/",
       "publisher": {
         "@type": "Organization", 
@@ -71,7 +101,7 @@
       },
       "softwareVersion": "1.3.0",
       "datePublished": "2024-01-01",
-      "dateModified": "2025-01-01",
+      "dateModified": "2025-10-01",
       "author": {
         "@type": "Person",
         "name": "Oleg Trofimov"
@@ -97,12 +127,13 @@
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div class="nav-dropdown-menu">
-              <a href="quickstart.html">🚀 Быстрый старт</a>
+              <a href="quickstart.html">🚀 Быстрый старт (5 мин)</a>
               <a href="docs-server.html">🐳 Сервер</a>
-              <a href="docs-sdk.html">📦 QortexMQ.Client</a>
+              <a href="docs-sdk.html">📦 .NET SDK</a>
+              <a href="docs-sdk.html#examples">💡 Примеры кода</a>
             </div>
           </div>
-          <a href="downloads.html">Загрузки</a>
+          <a href="downloads.html">Скачать</a>
           <a href="license.html">Лицензия</a>
           <a href="#contact">Контакты</a>
           <!-- Language Switcher -->
@@ -132,30 +163,43 @@
       <div class="container hero-inner">
         <div class="grid">
           <div class="reveal">
-            <h1>QortexMQ — современный и быстрый брокер сообщений</h1>
-            <p>Высокопроизводительный брокер сообщений с поддержкой приоритетов, ACK подтверждений, веб-интерфейсом и продвинутым QortexMQ.Client. Два режима доставки: Single и Broadcast.</p>
-            <div style="margin-top:16px; display:flex; gap:12px; flex-wrap: wrap;">
-              <a class="cta" href="quickstart.html">Быстрый старт →</a>
-              <a class="cta" href="#contact">Связаться с нами</a>
+            <h1>QortexMQ: Легковесный брокер сообщений для .NET</h1>
+            <p><strong>Запустите за 5 минут!</strong> Высокопроизводительный брокер сообщений с поддержкой .NET SDK. Проще чем Kafka, быстрее чем RabbitMQ. Идеально для микросервисов и приложений реального времени.</p>
+            <div style="margin-top:24px; display:flex; gap:16px; flex-wrap: wrap;">
+              <a class="cta" href="quickstart.html" style="background: #6366f1; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600;">🚀 Быстрый старт (5 мин)</a>
+              <a class="cta" href="#features" style="border: 2px solid #6366f1; color: #6366f1; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600;">Возможности</a>
+            </div>
+            <div style="margin-top:20px; display:flex; gap:16px; align-items: center; flex-wrap: wrap;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="color: #10b981;">✓</span>
+                <span>Бесплатно</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="color: #10b981;">✓</span>
+                <span>Готов к .NET 8+</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="color: #10b981;">✓</span>
+                <span>Поддержка Docker</span>
+              </div>
             </div>
           </div>
           <div class="reveal">
             <div class="terminal">
-                          <div class="terminal-header">
-              <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
-              <div class="right-group">
-                <div class="muted">qortex@localhost:~</div>
-              </div>
-            </div>
-              <div class="terminal-body">
-                <div><span class="prompt">$</span> docker run -d --name qortexmq-server</div>
-                <div><span class="prompt"></span> -p 9090:9090 -p 9080:9080 qortexmq-server</div>
-                <div><span class="prompt">$</span> # Открыть http://127.0.0.1:9080</div>
-                <div><span class="prompt">$</span> dotnet add package QortexMQ.Client</div>
-                <div><span class="prompt">$</span> # Использовать QortexMQ.Client</div>
-                <div>&gt; 
-                  <span class="caret">&nbsp;</span>
+              <div class="terminal-header">
+                <div class="traffic"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+                <div class="right-group">
+                  <div class="muted">qortex@localhost:~</div>
                 </div>
+              </div>
+              <div class="terminal-body">
+                <div><span class="prompt">$</span> # Запуск за 30 секунд</div>
+                <div><span class="prompt">$</span> docker run -d --name qortexmq \ </div>
+                <div><span class="prompt"></span> -p 9090:9090 -p 9080:9080 qortexmq/server</div>
+                <div><span class="prompt">$</span> # Открыть дашборд: http://localhost:9080</div>
+                <div style="margin-top: 10px;"><span class="prompt">$</span> # Добавить в .NET проект</div>
+                <div><span class="prompt">$</span> dotnet add package QortexMQ.Client</div>
+                <div>&gt; <span class="caret">&nbsp;</span></div>
               </div>
             </div>
           </div>
@@ -165,44 +209,33 @@
 
     <main>
       <!-- Быстрые ссылки -->
-      <section class="section" style="background: var(--bg-secondary); padding: 40px 0;">
+      <section class="section" style="background: var(--bg-secondary); padding: 60px 0;">
         <div class="container">
           <div class="card reveal">
-            <h2 style="text-align: center; margin-bottom: 30px;">🚀 Быстрый доступ</h2>
-            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-              <div class="quick-link-card">
-                <h3>📥 Установка</h3>
-                <p>Скачайте и запустите QortexMQ Server</p>
-                <div class="quick-links">
-                  <a href="downloads.html" class="quick-link">Загрузки</a>
-                  <a href="docs-server.html#native-distributions" class="quick-link">Нативные дистрибутивы</a>
-                  <a href="docs-server.html#docker-hub" class="quick-link">Docker Hub</a>
+            <h2 style="text-align: center; margin-bottom: 40px;">🚀 Начните за несколько минут</h2>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+              <div class="quick-link-card" style="text-align: center; padding: 30px;">
+                <h3>📥 Скачать и запустить</h3>
+                <p>Запустите QortexMQ менее чем за 2 минуты</p>
+                <div class="quick-links" style="margin-top: 20px;">
+                  <a href="downloads.html" class="quick-link" style="display: block; margin: 8px 0;">Docker образ</a>
+                  <a href="docs-server.html#native-distributions" class="quick-link" style="display: block; margin: 8px 0;">Нативные бинарники</a>
                 </div>
               </div>
-              <div class="quick-link-card">
-                <h3>📚 Документация</h3>
-                <p>Изучите возможности QortexMQ</p>
-                <div class="quick-links">
-                  <a href="quickstart.html" class="quick-link">Быстрый старт</a>
-                  <a href="docs-server.html" class="quick-link">Документация сервера</a>
-                  <a href="docs-sdk.html" class="quick-link">QortexMQ.Client</a>
+              <div class="quick-link-card" style="text-align: center; padding: 30px;">
+                <h3>📚 Изучить и создать</h3>
+                <p>Полные руководства и примеры</p>
+                <div class="quick-links" style="margin-top: 20px;">
+                  <a href="quickstart.html" class="quick-link" style="display: block; margin: 8px 0;">5-минутное руководство</a>
+                  <a href="docs-sdk.html#examples" class="quick-link" style="display: block; margin: 8px 0;">Примеры кода</a>
                 </div>
               </div>
-              <div class="quick-link-card">
-                <h3>🔧 Разработка</h3>
-                <p>Интеграция в ваши проекты</p>
-                <div class="quick-links">
-                  <a href="docs-sdk.html#installation" class="quick-link">Установка клиента</a>
-                  <a href="docs-sdk.html#basic-usage" class="quick-link">Базовое использование</a>
-                  <a href="docs-sdk.html#examples" class="quick-link">Примеры кода</a>
-                </div>
-              </div>
-              <div class="quick-link-card">
-                <h3>🌐 Ресурсы</h3>
-                <p>Дополнительная информация</p>
-                <div class="quick-links">
-                  <a href="license.html" class="quick-link">Лицензия</a>
-                  <a href="#contact" class="quick-link">Контакты</a>
+              <div class="quick-link-card" style="text-align: center; padding: 30px;">
+                <h3>🔧 Интегрировать</h3>
+                <p>Добавьте в ваши .NET приложения</p>
+                <div class="quick-links" style="margin-top: 20px;">
+                  <a href="docs-sdk.html#installation" class="quick-link" style="display: block; margin: 8px 0;">Руководство по .NET SDK</a>
+                  <a href="docs-sdk.html#basic-usage" class="quick-link" style="display: block; margin: 8px 0;">Справочник API</a>
                 </div>
               </div>
             </div>
@@ -213,46 +246,54 @@
       <section id="features" class="section">
         <div class="container">
           <div class="card reveal">
-            <h2>Почему разработчики выбирают QortexMQ</h2>
-            <p>QortexMQ предоставляет современный подход к обмену сообщениями в .NET экосистеме. С поддержкой Dependency Injection, структурированного логирования и продвинутых конфигураций — разработка становится проще и надёжнее.</p>
+            <h2 style="text-align: center; margin-bottom: 40px;">Почему .NET разработчики выбирают QortexMQ</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px;">Современный брокер сообщений, созданный специально для экосистемы .NET с поддержкой SDK первого класса.</p>
             
-            <div class="grid" style="margin-top:20px;">
-              <div>
-                <h3>🚀 Высокая производительность</h3>
-                <p>TCP оптимизации, Keep-Alive, No-Delay, настраиваемые буферы для максимальной скорости. Асинхронная обработка и многопоточность.</p>
+            <div class="grid" style="gap: 30px; margin-top: 40px;">
+              <div style="padding: 30px; border: 1px solid var(--border); border-radius: 8px;">
+                <h3 style="color: #6366f1;">🚀 Высокая производительность</h3>
+                <p>Оптимизированный TCP стек с Keep-Alive, No-Delay и настраиваемыми буферами. Асинхронная обработка для максимальной пропускной способности в .NET приложениях.</p>
               </div>
-              <div>
-                <h3>🔄 Гибкая доставка</h3>
-                <p>Single режим для балансировки нагрузки, Broadcast для уведомлений всех подписчиков. Приоритеты сообщений High и Low.</p>
+              <div style="padding: 30px; border: 1px solid var(--border); border-radius: 8px;">
+                <h3 style="color: #6366f1;">🔄 Гибкая система сообщений</h3>
+                <p>Режим Single для балансировки нагрузки, Broadcast для широковещательной рассылки. Приоритеты сообщений (High/Low) с гарантированной доставкой и подтверждениями ACK.</p>
               </div>
             </div>
             
-            <div class="grid" style="margin-top:20px;">
-              <div>
-                <h3>🛡️ Надёжность и мониторинг</h3>
-                <p>ACK подтверждения, автоматическое переподключение, детальное логирование всех операций. Встроенный веб-интерфейс для мониторинга.</p>
+            <div class="grid" style="gap: 30px; margin-top: 30px;">
+              <div style="padding: 30px; border: 1px solid var(--border); border-radius: 8px;">
+                <h3 style="color: #6366f1;">🛡️ Готовность для enterprise</h3>
+                <p>Автоматическое переподключение, детальное структурированное логирование, встроенный веб-дашборд для мониторинга в реальном времени и поддержка кластеров.</p>
               </div>
-              <div>
-                <h3>📦 QortexMQ.Client</h3>
-                <p>Dependency Injection, Builder pattern, структурированное логирование. Полная совместимость с ASP.NET Core и Worker Services.</p>
+              <div style="padding: 30px; border: 1px solid var(--border); border-radius: 8px;">
+                <h3 style="color: #6366f1;">📦 .NET First подход</h3>
+                <p>Нативный .NET SDK с Dependency Injection, Builder pattern и полной совместимостью с ASP.NET Core и Worker Services.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section">
+      <section class="section" style="background: var(--bg-secondary);">
         <div class="container">
-          <div class="grid">
+          <div class="grid" style="gap: 40px;">
             <div class="card reveal">
-              <h2>Для кого</h2>
-              <p>Разработчики .NET приложений, микросервисных архитектур и систем реального времени. Идеально для ASP.NET Core, Worker Services, Background Services и любых асинхронных сценариев.</p>
+              <h2>Идеально для .NET команд</h2>
+              <p>Создан специально для .NET разработчиков, работающих с микросервисами, системами реального времени и облачными приложениями. Идеально подходит для:</p>
+              <ul style="margin-top: 15px;">
+                <li>ASP.NET Core Web API</li>
+                <li>Background Services & Workers</li>
+                <li>Микросервисные архитектуры</li>
+                <li>Обработка событий в реальном времени</li>
+                <li>Облачные и контейнерные развертывания</li>
+              </ul>
             </div>
             <div class="card reveal">
-              <h2>Быстрый старт</h2>
-              <p>Запустите сервер и начните отправлять сообщения за несколько минут. Простая установка через NuGet и Docker.</p>
-              <div style="margin-top: 15px;">
-                <a href="quickstart.html" class="cta">Начать работу →</a>
+              <h2>Начните разработку сегодня</h2>
+              <p>Перейдите от нуля к продакшену за минуты, а не часы. Наш .NET SDK делает интеграцию бесшовной с вашей существующей кодовой базой.</p>
+              <div style="margin-top: 25px; display: flex; gap: 15px; flex-wrap: wrap;">
+                <a href="quickstart.html" class="cta" style="background: #6366f1; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600;">Начать обучение</a>
+                <a href="docs-sdk.html#examples" class="cta" style="border: 2px solid #6366f1; color: #6366f1; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600;">Примеры кода</a>
               </div>
             </div>
           </div>
@@ -261,35 +302,56 @@
 
       <section id="requirements" class="section">
         <div class="container">
-          <div class="grid">
+          <div class="grid" style="gap: 40px;">
             <div class="card reveal">
               <h2>Системные требования</h2>
               <ul class="list">
-                <li>.NET 8.0 или новее</li>
-                <li>Windows, Linux, macOS</li>
-                <li>RAM: от 512 МБ (рекомендовано 2+ ГБ)</li>
-                <li>Диск: любое хранилище, от 100 МБ свободного места</li>
-                <li>Сеть: любое подключение для разработки</li>
+                <li><strong>.NET 8.0</strong> или новее</li>
+                <li><strong>Windows, Linux, macOS</strong> - x64 & ARM64</li>
+                <li><strong>Память:</strong> 512 МБ мин., 2+ ГБ рекомендовано</li>
+                <li><strong>Хранилище:</strong> 100 МБ свободного места</li>
+                <li><strong>Сеть:</strong> TCP подключение</li>
+                <li><strong>Docker</strong> поддержка (опционально)</li>
               </ul>
             </div>
             <div class="card reveal">
-              <h2>Интеграции и SDK</h2>
-                <p>Полнофункциональный QortexMQ.Client с поддержкой Dependency Injection, Builder pattern, структурированного логирования. Совместим с ASP.NET Core, Worker Services, Background Services. TCP соединение с оптимизациями.</p>
+              <h2>Возможности .NET SDK</h2>
+              <p>Интеграция первого класса с современными паттернами разработки:</p>
+              <ul style="margin-top: 15px;">
+                <li>Готовность к Dependency Injection</li>
+                <li>Конфигурация через Builder pattern</li>
+                <li>Структурированное логирование (ILogger)</li>
+                <li>Интеграция с ASP.NET Core</li>
+                <li>Поддержка BackgroundService</li>
+                <li>Пул TCP соединений</li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="faq" class="section">
+      <section id="faq" class="section" style="background: var(--bg-secondary);">
         <div class="container">
           <div class="card reveal">
-            <h2>FAQ</h2>
-                          <ul class="list">
-                <li><strong>Какие возможности предоставляет QortexMQ.Client?</strong> Dependency Injection, Builder pattern, автоматическое переподключение, настраиваемые таймауты, TCP оптимизации, структурированное логирование.</li>
-                <li><strong>Какие режимы доставки поддерживаются?</strong> Single (одному подписчику) и Broadcast (всем подписчикам). Приоритеты сообщений: High и Low.</li>
-                <li><strong>Есть ли веб-интерфейс для мониторинга?</strong> Да, встроенный веб-интерфейс с реальной статистикой топиков, подписчиков и сообщений.</li>
-                <li><strong>Поддерживается ли ASP.NET Core?</strong> Да, полная совместимость с ASP.NET Core, Worker Services, Background Services и Dependency Injection.</li>
-              </ul>
+            <h2 style="text-align: center; margin-bottom: 40px;">Часто задаваемые вопросы</h2>
+            <div class="grid" style="gap: 30px;">
+              <div>
+                <h3>🤔 Как QortexMQ сравнивается с Kafka?</h3>
+                <p>QortexMQ проще в настройке и эксплуатации при сохранении высокой производительности. Идеально для команд, которым не нужна полная сложность Kafka, но требуется надежная система сообщений.</p>
+              </div>
+              <div>
+                <h3>🚀 Есть ли .NET SDK?</h3>
+                <p>Да! SDK первого класса для .NET с поддержкой Dependency Injection, Builder pattern и полной совместимостью с современными .NET приложениями.</p>
+              </div>
+              <div>
+                <h3>📊 Можно ли мониторить брокер сообщений?</h3>
+                <p>Да, встроенный веб-дашборд предоставляет статистику в реальном времени по топикам, подписчикам, скорости сообщений и состоянию системы.</p>
+              </div>
+              <div>
+                <h3>💼 Готов ли для продакшена?</h3>
+                <p>Да, QortexMQ включает enterprise функции: гарантированная доставка, автоматическое переподключение и поддержка кластеров для промышленных развертываний.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -297,26 +359,31 @@
       <section id="contact" class="section">
         <div class="container">
           <div class="grid">
-            <div class="card reveal">
-              <h2>📞 Связаться с нами</h2>
-              <p class="muted">Выберите удобный для вас способ связи:</p>
+            <div class="card reveal" style="text-align: center;">
+              <h2>🚀 Готовы начать?</h2>
+              <p class="muted" style="font-size: 1.1rem; margin-bottom: 30px;">Присоединяйтесь к разработчикам, которые выпускают продукты быстрее с QortexMQ</p>
               
-              <div style="margin-top:20px; display: flex; flex-direction: column; gap: 16px;" id="contacts-container">
+              <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px;">
+                <a href="quickstart.html" class="cta" style="background: #6366f1; color: white; padding: 14px 32px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 1.1rem;">
+                  Бесплатное обучение
+                </a>
+                <a href="#contact" class="cta" style="border: 2px solid #6366f1; color: #6366f1; padding: 14px 32px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 1.1rem;">
+                  Связаться с командой
+                </a>
+              </div>
+
+              <div style="margin-top:20px; display: flex; flex-direction: column; gap: 16px; align-items: center;" id="contacts-container">
                 <!-- Контакты будут добавлены автоматически из contacts.js -->
               </div>
-              
-
             </div>
           </div>
-          
-
         </div>
       </section>
     </main>
 
     <footer class="footer">
       <div class="container">
-        © <span id="year"></span> QortexMQ. Все права защищены.
+        © <span id="year"></span> QortexMQ. Открытый брокер сообщений для .NET. Все права защищены.
       </div>
     </footer>
 
@@ -341,7 +408,6 @@
       document.addEventListener('DOMContentLoaded', function() {
         const backToTopButton = document.getElementById('backToTop');
         
-        // Показать/скрыть кнопку при прокрутке
         window.addEventListener('scroll', function() {
           if (window.pageYOffset > 300) {
             backToTopButton.classList.add('visible');
@@ -350,7 +416,6 @@
           }
         });
         
-        // Плавная прокрутка наверх
         backToTopButton.addEventListener('click', function() {
           window.scrollTo({
             top: 0,
@@ -367,15 +432,15 @@
         if (!container) return;
         
         const contactTypes = [
-          { key: 'email', label: 'Email', icon: '📧', href: (value) => `mailto:${value}` },
-          { key: 'telegram', label: 'Telegram', icon: '💬', href: (value) => value },
-          { key: 'github', label: 'GitHub', icon: '🐙', href: (value) => value }
+          { key: 'email', label: 'Поддержка по Email', icon: '📧', href: (value) => `mailto:${value}` },
+          { key: 'telegram', label: 'Чат в Telegram', icon: '💬', href: (value) => value },
+          { key: 'github', label: 'Issues на GitHub', icon: '🐙', href: (value) => value }
         ];
         
         contactTypes.forEach(type => {
           if (shouldShowContact(type.key)) {
             const contactDiv = document.createElement('div');
-            contactDiv.style.cssText = 'display: flex; align-items: center; gap: 12px; padding: 16px; background: var(--card); border-radius: var(--radius); border: 1px solid var(--border);';
+            contactDiv.style.cssText = 'display: flex; align-items: center; gap: 12px; padding: 16px; background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); min-width: 250px;';
             
             contactDiv.innerHTML = `
               <div>
@@ -421,7 +486,6 @@
         }
       }
       
-      // Запуск аналитики после загрузки всех скриптов
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initAnalytics);
       } else {
