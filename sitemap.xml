@@ -3,13 +3,13 @@
   <!-- Main pages -->
   <url>
     <loc>https://qortexmq.github.io/</loc>
-    <lastmod>2025-09-14</lastmod>
+    <lastmod>2025-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://qortexmq.github.io/en/</loc>
-    <lastmod>2025-09-14</lastmod>
+    <lastmod>2025-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -37,6 +37,24 @@
     <loc>https://qortexmq.github.io/en/docs-server.html</loc>
     <lastmod>2025-09-14</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+    <url>
+    <loc>https://qortexmq.github.io/blog/</loc>
+    <lastmod>2025-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qortexmq.github.io/blog/qortexmq-vs-kafka.html</loc>
+    <lastmod>2025-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://qortexmq.github.io/blog/message-brokers-benchmarks.html</loc>
+    <lastmod>2025-10-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
