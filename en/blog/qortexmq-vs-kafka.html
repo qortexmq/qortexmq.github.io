@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-US" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QortexMQ vs Kafka: When to Choose a Lightweight Solution | QortexMQ Blog</title>
+    <meta name="description" content="Detailed comparison of QortexMQ and Apache Kafka: architecture, performance, use cases. When to choose a lightweight message broker.">
+    <meta name="keywords" content="QortexMQ vs Kafka, message broker comparison, Apache Kafka alternative, lightweight message broker, .NET message broker">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <style>
+        .article-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+        }
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+        .article-meta {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 12px;
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+        .comparison-table th {
+            background: var(--bg-secondary);
+        }
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .pros { color: #10b981; }
+        .cons { color: #ef4444; }
+        code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="container nav-inner">
+            <a class="brand" href="../index.html">
+                <img class="logo-img" src="../../assets/img/logo-dark.svg" alt="QortexMQ" />
+                <span class="name">Qortex<span class="mq">MQ</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <!-- Documentation Dropdown -->
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-toggle" aria-label="Documentation menu">
+                        Documentation
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="../quickstart.html">🚀 Quick Start</a>
+                        <a href="../docs-server.html">🐳 Server</a>
+                        <a href="../docs-sdk.html">📦 QortexMQ.Client</a>
+                    </div>
+                </div>
+                <a href="../downloads.html">Downloads</a>
+                <a href="../license.html">License</a>
+                <a href="../#contact">Contact</a>
+                <a href="../blog/">Blog</a>
+                <!-- Language Switcher -->
+                <div class="lang-switcher">
+                    <button id="langToggle" class="lang-toggle" aria-label="Switch language">
+                        <span id="currentLang">EN</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div id="langDropdown" class="lang-dropdown">
+                        <a href="/blog/qortexmq-vs-kafka.html" data-lang="ru">Russian</a>
+                        <a href="/en/blog/qortexmq-vs-kafka.html" data-lang="en">English</a>
+                    </div>
+                </div>
+                <div class="theme-switcher">
+                    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" style="border: 1px solid var(--border); background: var(--card); padding: 6px 10px; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; color: var(--text); font-family: var(--font-ui); font-size: 0.95rem; appearance: none; margin: 0; box-sizing: border-box;">
+                        <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <span id="themeLabel">Dark</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="blog-hero">
+        <div class="container">
+            <h1>QortexMQ Blog</h1>
+            <p>Technical articles about message brokers, microservices, and .NET development</p>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 60px 20px;">
+        <article>
+            <header class="article-header">
+                <div class="container">
+                    <div class="article-meta">📊 Comparison • 10 min read • Updated 2024</div>
+                    <h1>QortexMQ vs Kafka: When to Choose a Lightweight Solution</h1>
+                    <p>Architectural differences, performance, and optimal use cases</p>
+                </div>
+            </header>
+
+            <div class="article-content">
+                <h2>Introduction</h2>
+                <p>Choosing a message broker is a critical decision when designing distributed systems. Apache Kafka has become an industry standard, but it's not suitable for all scenarios. In this article, we'll explore when QortexMQ becomes the better choice.</p>
+
+                <h2>Architectural Differences</h2>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Apache Kafka</th>
+                            <th>QortexMQ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Architecture</strong></td>
+                            <td>Distributed log-oriented broker</td>
+                            <td>Lightweight message-oriented broker</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Setup Complexity</strong></td>
+                            <td>High (Zookeeper, brokers, replication)</td>
+                            <td>Low (single binary, config file)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Development Setup</strong></td>
+                            <td>3+ processes, 2+ GB RAM</td>
+                            <td>1 process, 50+ MB RAM</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Delivery Guarantees</strong></td>
+                            <td>At-least-once, exactly-once</td>
+                            <td>At-least-once</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Use Cases</h2>
+
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h3>✅ Choose Kafka when:</h3>
+                        <ul>
+                            <li>Processing millions of messages per day</li>
+                            <li>Exactly-once delivery is required</li>
+                            <li>Long-term message storage needed</li>
+                            <li>You have a DevOps team for maintenance</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h3>✅ Choose QortexMQ when:</h3>
+                        <ul>
+                            <li>Developing MVP or startup</li>
+                            <li>Team of up to 10 developers</li>
+                            <li>Up to 100K messages per day</li>
+                            <li>Need fast setup and prototyping</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2>Performance Example</h2>
+                <p>Testing on a machine with 4 cores and 8 GB RAM:</p>
+                
+                <table class="comparison-table">
+                    <tr>
+                        <th>Metric</th>
+                        <th>Kafka (1 broker)</th>
+                        <th>QortexMQ</th>
+                    </tr>
+                    <tr>
+                        <td>Startup Time</td>
+                        <td>45 seconds</td>
+                        <td>3 seconds</td>
+                    </tr>
+                    <tr>
+                        <td>Memory Usage</td>
+                        <td>1.2 GB</td>
+                        <td>85 MB</td>
+                    </tr>
+                    <tr>
+                        <td>Throughput</td>
+                        <td>95K msg/sec</td>
+                        <td>45K msg/sec</td>
+                    </tr>
+                </table>
+
+                <h2>Conclusion</h2>
+                <p>QortexMQ is perfect for projects where simplicity and development speed matter. Kafka remains the best choice for enterprise solutions with high scalability and fault tolerance requirements.</p>
+
+                <div style="margin-top: 50px; padding: 20px; background: var(--bg-secondary); border-radius: 8px;">
+                    <h3>🚀 Want to try QortexMQ?</h3>
+                    <p>Set up in 2 minutes and experience the benefits of a lightweight solution:</p>
+                    <a href="../quickstart.html" class="cta" style="display: inline-block; margin-top: 15px; background: #6366f1; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600;">Quick Start</a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            © <span id="year"></span> QortexMQ. Blog about message brokers and .NET development.
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

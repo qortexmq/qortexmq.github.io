@@ -25,6 +25,9 @@ Allow: /en/license.html
 Allow: /blog/
 Allow: /blog/qortexmq-vs-kafka.html
 Allow: /blog/message-brokers-benchmarks.html
+Allow: /en/blog/
+Allow: /en/blog/qortexmq-vs-kafka.html
+Allow: /en/blog/message-brokers-benchmarks.html
 
 # Sitemaps
 Sitemap: https://qortexmq.github.io/sitemap.xml
