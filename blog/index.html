@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru-RU" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блог QortexMQ - Статьи о брокерах сообщений и .NET</title>
+    <meta name="description" content="Технический блог QortexMQ: статьи о микросервисах, брокерах сообщений, .NET разработке и сравнении производительности.">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+        .blog-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        .article-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        .read-more {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+    </style>
+</head>
+<body>
+      <nav class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="index.html">
+          <img class="logo-img" src="../assets/img/logo-dark.svg" alt="QortexMQ" />
+          <span class="name">Qortex<span class="mq">MQ</span></span>
+        </a>
+        <div class="nav-links">
+          <a href="../index.html">Главная</a>
+          <!-- Documentation Dropdown -->
+          <div class="nav-dropdown">
+            <button class="nav-dropdown-toggle" aria-label="Documentation menu">
+              Документация
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="nav-dropdown-menu">
+              <a href="../quickstart.html">🚀 Быстрый старт</a>
+              <a href="../docs-server.html">🐳 Сервер</a>
+              <a href="../docs-sdk.html">📦 QortexMQ.Client</a>
+            </div>
+          </div>
+          <a href="../downloads.html">Загрузки</a>
+          <a href="../license.html">Лицензия</a>
+          <a href="../#contact">Контакты</a>
+          <a href="../blog/">Блог</a>
+          <!-- Language Switcher -->
+          <div class="lang-switcher">
+            <button id="langToggle" class="lang-toggle" aria-label="Переключить язык">
+              <span id="currentLang">RU</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div id="langDropdown" class="lang-dropdown">
+              <a href="/" data-lang="ru">Русский</a>
+              <a href="/en/" data-lang="en">English</a>
+            </div>
+          </div>
+          <div class="theme-switcher">
+            <button id="themeToggle" class="theme-toggle" aria-label="Переключить тему" style="border: 1px solid var(--border); background: var(--card); padding: 6px 10px; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; color: var(--text); font-family: var(--font-ui); font-size: 0.95rem; appearance: none; margin: 0; box-sizing: border-box;">
+              <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+              <span id="themeLabel">Тёмная</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <header class="blog-hero">
+        <div class="container">
+            <h1>Блог QortexMQ</h1>
+            <p>Технические статьи о брокерах сообщений, микросервисах и .NET разработке</p>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 60px 20px;">
+        <div class="articles-grid">
+            <!-- Статья 1 -->
+            <article class="article-card">
+                <div class="article-meta">📊 Сравнение • 10 мин чтения</div>
+                <h2>QortexMQ vs Kafka: когда выбрать легковесное решение</h2>
+                <p>Подробное сравнение архитектур, производительности и сценариев использования. Узнайте, когда стоит выбрать QortexMQ вместо Apache Kafka.</p>
+                <a href="qortexmq-vs-kafka.html" class="read-more">Читать статью →</a>
+            </article>
+
+            <!-- Статья 2 -->
+            <article class="article-card">
+                <div class="article-meta">⚡ Производительность • 18 мин чтения</div>
+                <h2>Производительность брокеров сообщений: бенчмарки</h2>
+                <p>Результаты тестирования производительности QortexMQ, Kafka, RabbitMQ и Redis. Метрики, графики, выводы.</p>
+                <a href="message-brokers-benchmarks.html" class="read-more">Читать статью →</a>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            © <span id="year"></span> QortexMQ. Блог о брокерах сообщений и .NET разработке.
+        </div>
+    </footer>
+</body>
+</html>

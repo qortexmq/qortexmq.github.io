@@ -21,6 +21,11 @@ Allow: /en/quickstart.html
 Allow: /en/downloads.html
 Allow: /en/license.html
 
+# Allow blog pages for SEO
+Allow: /blog/
+Allow: /blog/qortexmq-vs-kafka.html
+Allow: /blog/message-brokers-benchmarks.html
+
 # Sitemaps
 Sitemap: https://qortexmq.github.io/sitemap.xml
 
