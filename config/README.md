@@ -21,7 +21,7 @@ config/
 Содержит все URL, пути и основные настройки сайта.
 
 **Основные настройки:**
-- `domain` - домен сайта (например: "qortexmq.github.io")
+- `domain` - домен сайта (например: "qortexmq.ru")
 - `baseUrl` - полный URL сайта с протоколом
 - `paths` - пути к страницам и внешние ссылки
 - `seo` - настройки SEO (title, description, keywords)

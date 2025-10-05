@@ -30,12 +30,12 @@ Allow: /en/blog/qortexmq-vs-kafka.html
 Allow: /en/blog/message-brokers-benchmarks.html
 
 # Sitemaps
-Sitemap: https://qortexmq.github.io/sitemap.xml
+Sitemap: https://qortexmq.ru/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
 
 # Additional SEO directives
-Host: qortexmq.github.io
+Host: qortexmq.ru
 
 

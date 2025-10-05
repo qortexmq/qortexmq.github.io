@@ -3,7 +3,7 @@
     "name": "QortexMQ",
     "title": "QortexMQ: Легковесный брокер сообщений для .NET | Запуск за 5 минут",
     "description": "🚀 Запустите за 5 минут! QortexMQ - легковесный брокер сообщений с .NET SDK. Проще чем Kafka, быстрее чем RabbitMQ. Бесплатно для проектов.",
-    "url": "https://qortexmq.github.io",
+    "url": "https://qortexmq.ru",
     "language": "ru-RU",
     "alternate_language": "en-US"
   },
@@ -114,8 +114,8 @@
     "organization": {
       "@type": "Organization",
       "name": "QortexMQ",
-      "url": "https://qortexmq.github.io",
-      "logo": "https://qortexmq.github.io/assets/img/logo-dark.svg",
+      "url": "https://qortexmq.ru",
+      "logo": "https://qortexmq.ru/assets/img/logo-dark.svg",
       "description": "Легковесный брокер сообщений для .NET с запуском за 5 минут",
       "slogan": "Проще чем Kafka, быстрее чем RabbitMQ"
     },

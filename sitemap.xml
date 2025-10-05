@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Main pages -->
   <url>
-    <loc>https://qortexmq.github.io/</loc>
+    <loc>https://qortexmq.ru/</loc>
     <lastmod>2025-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://qortexmq.github.io/en/</loc>
+    <loc>https://qortexmq.ru/en/</loc>
     <lastmod>2025-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -16,73 +16,73 @@
   
   <!-- Documentation pages -->
   <url>
-    <loc>https://qortexmq.github.io/quickstart.html</loc>
+    <loc>https://qortexmq.ru/quickstart.html</loc>
     <lastmod>2025-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://qortexmq.github.io/en/quickstart.html</loc>
+    <loc>https://qortexmq.ru/en/quickstart.html</loc>
     <lastmod>2025-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://qortexmq.github.io/docs-server.html</loc>
+    <loc>https://qortexmq.ru/docs-server.html</loc>
     <lastmod>2025-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://qortexmq.github.io/en/docs-server.html</loc>
+    <loc>https://qortexmq.ru/en/docs-server.html</loc>
     <lastmod>2025-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
     <url>
-    <loc>https://qortexmq.github.io/blog/</loc>
+    <loc>https://qortexmq.ru/blog/</loc>
     <lastmod>2025-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://qortexmq.github.io/blog/qortexmq-vs-kafka.html</loc>
+    <loc>https://qortexmq.ru/blog/qortexmq-vs-kafka.html</loc>
     <lastmod>2025-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://qortexmq.github.io/blog/message-brokers-benchmarks.html</loc>
+    <loc>https://qortexmq.ru/blog/message-brokers-benchmarks.html</loc>
     <lastmod>2025-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
    <url>
-    <loc>https://qortexmq.github.io/en/blog/</loc>
+    <loc>https://qortexmq.ru/en/blog/</loc>
     <lastmod>2025-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://qortexmq.github.io/en/blog/qortexmq-vs-kafka.html</loc>
+    <loc>https://qortexmq.ru/en/blog/qortexmq-vs-kafka.html</loc>
     <lastmod>2025-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://qortexmq.github.io/en/blog/message-brokers-benchmarks.html</loc>
+    <loc>https://qortexmq.ru/en/blog/message-brokers-benchmarks.html</loc>
     <lastmod>2025-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://qortexmq.github.io/docs-sdk.html</loc>
+    <loc>https://qortexmq.ru/docs-sdk.html</loc>
     <lastmod>2025-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://qortexmq.github.io/en/docs-sdk.html</loc>
+    <loc>https://qortexmq.ru/en/docs-sdk.html</loc>
     <lastmod>2025-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -90,13 +90,13 @@
   
   <!-- Download pages -->
   <url>
-    <loc>https://qortexmq.github.io/downloads.html</loc>
+    <loc>https://qortexmq.ru/downloads.html</loc>
     <lastmod>2025-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://qortexmq.github.io/en/downloads.html</loc>
+    <loc>https://qortexmq.ru/en/downloads.html</loc>
     <lastmod>2025-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -104,13 +104,13 @@
   
   <!-- Legal pages -->
   <url>
-    <loc>https://qortexmq.github.io/license.html</loc>
+    <loc>https://qortexmq.ru/license.html</loc>
     <lastmod>2025-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://qortexmq.github.io/en/license.html</loc>
+    <loc>https://qortexmq.ru/en/license.html</loc>
     <lastmod>2025-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -118,13 +118,13 @@
   
   <!-- Error pages -->
   <url>
-    <loc>https://qortexmq.github.io/404.html</loc>
+    <loc>https://qortexmq.ru/404.html</loc>
     <lastmod>2025-09-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
-    <loc>https://qortexmq.github.io/en/404.html</loc>
+    <loc>https://qortexmq.ru/en/404.html</loc>
     <lastmod>2025-09-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.1</priority>
