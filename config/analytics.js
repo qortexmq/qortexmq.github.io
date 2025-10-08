@@ -4,13 +4,13 @@
 const ANALYTICS = {
   // Google Analytics
   google: {
-    id: "G-REPLACEID", // Замените на ваш Google Analytics ID
+    id: "GTM-K3P829D5", // Замените на ваш Google Analytics ID
     enabled: true
   },
   
   // Yandex.Metrika
   yandex: {
-    id: "104149075", // ID Яндекс.Метрики
+    id: "104436671", // ID Яндекс.Метрики
     enabled: true
   }
 };

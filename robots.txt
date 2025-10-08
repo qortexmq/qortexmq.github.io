@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Allow: /en
 Disallow: /Secret/
 Disallow: /publish/
 Disallow: /src/

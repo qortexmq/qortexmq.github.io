@@ -190,7 +190,7 @@
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => { setYear(); navMenu(); documentationDropdown(); languageSwitcher();  bindEvents(); });
-  } else { setYear(); navMenu(); documentationDropdown(); languageSwitcher(); registerSW(); bindEvents(); }
+  } else { setYear(); navMenu(); documentationDropdown(); languageSwitcher(); bindEvents(); }
 })();
 
 
