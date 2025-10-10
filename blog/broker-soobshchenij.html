@@ -222,7 +222,7 @@
             </section>
 
             <section id="comparison" class="content-section">
-                <h2 class="section-title">Сравнение брокеров сообщений 2024: RabbitMQ vs Kafka vs Redis vs Qortex MQ</h2>
+                <h2 class="section-title">Сравнение брокеров сообщений 2025: RabbitMQ vs Kafka vs Redis vs Qortex MQ</h2>
                 
                 <table class="comparison-table">
                     <thead>
@@ -254,7 +254,7 @@
                             <td>Да (на диск)</td>
                             <td>Да (реплицируемый лог)</td>
                             <td>Ограниченная (AOF)</td>
-                            <td><span class="feature-badge">Да</span> (высокооптимизированная)</td>
+                            <td><span class="feature-badge">Нет</span> Высокоскоростная в памяти</td>
                         </tr>
                         <tr>
                             <td><strong>Сложность настройки</strong></td>
@@ -301,11 +301,10 @@
                 
                 <h3>Ключевые преимущества Qortex MQ:</h3>
                 <ul>
-                    <li><strong>Высокая производительность:</strong> Оптимизированное ядро на Go</li>
+                    <li><strong>Высокая производительность:</strong> Оптимизированное ядро</li>
                     <li><strong>Простота развертывания:</strong> Единственный бинарный файл без зависимостей</li>
-                    <li><strong>Автоматическая кластеризация:</strong> Встроенная поддержка отказоустойчивых кластеров</li>
                     <li><strong>Гибкая модель доставки:</strong> Поддержка очередей и потоков событий</li>
-                    <li><strong>Открытый исходный код:</strong> Прозрачность разработки</li>
+                    <li><strong>Отсутствие персистентности:</strong> Высокая скорость обработки сообщений</li>
                 </ul>
             </section>
 
