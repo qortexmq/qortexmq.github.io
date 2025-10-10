@@ -4,7 +4,7 @@
 const ANALYTICS = {
   // Google Analytics
   google: {
-    id: "GTM-K3P829D5", // Замените на ваш Google Analytics ID
+    id: "G-TQS6R1JNBQ", // Замените на ваш Google Analytics ID
     enabled: true
   },
   
