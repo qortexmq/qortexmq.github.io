@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ru-RU" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Брокер сообщений: что это такое и как работает? Полный обзор 2024 | Qortex MQ</title>
+    <meta name="description" content="✅ Полное руководство по брокерам сообщений: что это, как работают, сравнение RabbitMQ, Kafka, Redis и Qortex MQ. Выбор оптимального решения для вашего проекта.">
+    <meta name="keywords" content="брокеры сообщений">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <style>
+        .article-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+        }
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+        .article-meta {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 12px;
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+        .comparison-table th {
+            background: var(--bg-secondary);
+        }
+        .benchmark-result {
+            background: var(--card);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+        .chart-placeholder {
+            background: var(--bg-secondary);
+            padding: 40px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px dashed var(--border);
+        }
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .pros { color: #10b981; }
+        .cons { color: #ef4444; }
+        code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; }
+        .code-block {
+            background: #1a1a1a;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104436671', 'ym');
+
+    ym(104436671, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/104436671" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+ 
+      <nav class="nav">
+        <div class="container nav-inner">
+            <a class="brand" href="../index.html">
+                <img class="logo-img" src="../../assets/img/logo-dark.svg" alt="QortexMQ" />
+                <span class="name">Qortex<span class="mq">MQ</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <!-- Documentation Dropdown -->
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-toggle" aria-label="Documentation menu">
+                        Documentation
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="../quickstart.html">🚀 Quick Start</a>
+                        <a href="../docs-server.html">🐳 Server</a>
+                        <a href="../docs-sdk.html">📦 QortexMQ.Client</a>
+                    </div>
+                </div>
+                <a href="../downloads.html">Downloads</a>
+                <a href="../license.html">License</a>
+                <a href="../#contact">Contact</a>
+                <a href="../blog/">Blog</a>
+                <!-- Language Switcher -->
+                <div class="lang-switcher">
+                    <button id="langToggle" class="lang-toggle" aria-label="Switch language">
+                        <span id="currentLang">EN</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div id="langDropdown" class="lang-dropdown">
+                        <a href="/blog/message-brokers-benchmarks.html" data-lang="ru">Russian</a>
+                        <a href="/en/blog/message-brokers-benchmarks.html" data-lang="en">English</a>
+                    </div>
+                </div>
+                <div class="theme-switcher">
+                    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" style="border: 1px solid var(--border); background: var(--card); padding: 6px 10px; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; color: var(--text); font-family: var(--font-ui); font-size: 0.95rem; appearance: none; margin: 0; box-sizing: border-box;">
+                        <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <span id="themeLabel">Dark</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+     <header class="blog-hero">
+        <div class="container">
+            <h1>QortexMQ Blog</h1>
+            <p>Technical articles about message brokers, microservices and .NET development</p>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 60px 20px;">
+   <article>
+        <header class="article-header">
+            <div class="container">
+                <div class="article-meta">Complete Overview 2025 • 20 min read • Updated 2025</div>
+                <h1>Message Broker: What Is It and How Does It Work? Complete Overview 2025</h1>
+                <p>Complete guide to choosing and using message brokers in modern distributed systems</p>
+            </div>
+        </header>
+
+        <div class="article-content">
+            <!-- Table of Contents -->
+            <nav class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#what-is">What is a Message Broker?</a></li>
+                    <li><a href="#why-needed">Why Do You Need a Message Broker?</a></li>
+                    <li><a href="#how-works">How Does a Message Broker Work?</a></li>
+                    <li><a href="#patterns">Working Patterns</a></li>
+                    <li><a href="#comparison">Message Broker Comparison</a></li>
+                    <li><a href="#criteria">Selection Criteria</a></li>
+                    <li><a href="#qortex">Qortex MQ — Modern Solution</a></li>
+                </ul>
+            </nav>
+
+            <!-- Main Content -->
+            <section id="what-is" class="content-section">
+                <h2 class="section-title">What is a Message Broker?</h2>
+                <p><strong>Message Broker</strong> is a middleware that enables message exchange between different components of a distributed system. Think of it as a "post office" for your applications: one service sends a message to the broker, and another service picks it up when ready.</p>
+                
+                <p>The main task of a message broker is to <strong>decouple</strong> system components. The sender doesn't need to know where the receiver is located, whether it's currently active, or how to find it. All routing, buffering, and delivery logic is handled by the broker.</p>
+            </section>
+
+            <section id="why-needed" class="content-section">
+                <h2 class="section-title">Why Do You Need a Message Broker? 5 Key Reasons</h2>
+                
+                <h3>1. Asynchronous Processing</h3>
+                <p>The sender service doesn't block waiting for a response from the receiver service. It simply "throws" a message into the broker and continues working. This significantly improves system responsiveness.</p>
+
+                <h3>2. Scalability</h3>
+                <p>The message broker acts as a buffer between fast and slow consumers. You can increase the number of message handlers without changing the sender's code.</p>
+
+                <h3>3. Reliability and Fault Tolerance</h3>
+                <p>Most brokers support persistence (saving messages to disk). If a consumer fails, messages won't be lost and will be delivered after recovery.</p>
+
+                <h3>4. Flexible Routing</h3>
+                <p>Complex routing scenarios (one message to many recipients, filtering, transformation) are easily implemented through the broker.</p>
+
+                <h3>5. Heterogeneous System Integration</h3>
+                <p>Message brokers allow connecting systems written in different programming languages and running on different platforms.</p>
+            </section>
+
+            <section id="how-works" class="content-section">
+                <h2 class="section-title">How Does a Message Broker Work? Basic Architecture</h2>
+                
+                <div class="architecture-diagram">
+                    <!-- Architecture diagram should be here -->
+                    <p>[Message Broker Architecture Diagram]</p>
+                    <p><small>Producer → Message Broker → Consumer</small></p>
+                </div>
+                
+                <p>Let's consider the basic architecture using a simple scenario:</p>
+                
+                <ol>
+                    <li><strong>Producer (Publisher)</strong> — component that creates and sends messages to the broker.</li>
+                    <li><strong>Message Broker</strong> — receives messages, stores them, and handles routing.</li>
+                    <li><strong>Consumer</strong> — component that receives and processes messages from the broker.</li>
+                </ol>
+            </section>
+
+            <section id="patterns" class="content-section">
+                <h2 class="section-title">Message Broker Working Patterns</h2>
+                
+                <h3>Point-to-Point (Message Queue)</h3>
+                <p>A message is sent to a specific queue and processed by <strong>one</strong> of the available consumers. Ideal for distributing tasks among workers.</p>
+                
+                <h3>Publish/Subscribe (Pub/Sub)</h3>
+                <p>A message is published to a topic, and all subscribers of that topic receive a copy of the message. Perfect for event-driven architectures and notifications.</p>
+                
+                <h3>Request/Reply</h3>
+                <p>Temporary queues for implementing synchronous interaction through an asynchronous messaging system.</p>
+            </section>
+
+            <section id="comparison" class="content-section">
+                <h2 class="section-title">Message Broker Comparison 2024: RabbitMQ vs Kafka vs Redis vs Qortex MQ</h2>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>RabbitMQ</th>
+                            <th>Apache Kafka</th>
+                            <th>Redis Pub/Sub</th>
+                            <th><strong>Qortex MQ</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Primary Model</strong></td>
+                            <td>Message Queues, AMQP</td>
+                            <td>Event Log, Streams</td>
+                            <td>Pub/Sub, Queues</td>
+                            <td>Universal (Queues + Streams)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Performance</strong></td>
+                            <td>Medium (~50K msg/sec)</td>
+                            <td>Very High (~1M+ msg/sec)</td>
+                            <td>High (~200K msg/sec)</td>
+                            <td><span class="feature-badge">Very High</span> (~500K+ msg/sec)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Persistence</strong></td>
+                            <td>Yes (to disk)</td>
+                            <td>Yes (replicated log)</td>
+                            <td>Limited (AOF)</td>
+                            <td><span class="feature-badge">Yes</span> (highly optimized)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Setup Complexity</strong></td>
+                            <td>Medium</td>
+                            <td>High</td>
+                            <td>Low</td>
+                            <td><span class="feature-badge">Low</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Clustering Support</strong></td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td><span class="feature-badge">No</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Best Use Case</strong></td>
+                            <td>Complex routing, business logic tasks</td>
+                            <td>Event streams, real-time analytics</td>
+                            <td>Caching, real-time, simple queues</td>
+                            <td><span class="feature-badge">Universal</span>: microservices, IoT, high-load systems</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="criteria" class="content-section">
+                <h2 class="section-title">How to Choose a Message Broker? Key Criteria</h2>
+                
+                <ul>
+                    <li><strong>Performance:</strong> How many messages per second do you need?</li>
+                    <li><strong>Latency:</strong> How critical are delays for your application?</li>
+                    <li><strong>Delivery Reliability:</strong> Do you need guaranteed delivery?</li>
+                    <li><strong>Scalability:</strong> How does the system behave under increased load?</li>
+                    <li><strong>Ecosystem and Community:</strong> Is there enough documentation and libraries?</li>
+                    <li><strong>Operational Costs:</strong> How difficult is it to maintain and monitor?</li>
+                </ul>
+            </section>
+
+            <section id="qortex" class="content-section">
+                <h2 class="section-title">Qortex MQ: Modern Message Broker for High-Load Systems</h2>
+                
+                <p><strong>Qortex MQ</strong> is a next-generation message broker designed with modern performance and ease-of-use requirements in mind.</p>
+                
+                <h3>Key Advantages of Qortex MQ:</h3>
+                <ul>
+                    <li><strong>High Performance:</strong> Optimized Go core</li>
+                    <li><strong>Easy Deployment:</strong> Single binary file without dependencies</li>
+                    <li><strong>Automatic Clustering:</strong> Built-in support for fault-tolerant clusters</li>
+                    <li><strong>Flexible Delivery Model:</strong> Support for queues and event streams</li>
+                    <li><strong>Open Source:</strong> Development transparency</li>
+                </ul>
+            </section>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h3>Ready to Try Qortex MQ?</h3>
+                <p>Start working with a modern message broker today</p>
+                <div class="cta-buttons">
+                    <a href="/en/quickstart.html" class="btn btn-primary">📚 Quick Start</a>
+                    <a href="/en/downloads.html" class="btn btn-secondary">⭐ Download</a>
+                </div>
+            </div>
+    
+        </div>
+    </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            © <span id="year"></span> QortexMQ. Blog about message brokers and .NET development.
+        </div>
+    </footer>
+
+        <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Message Broker: What Is It and How Does It Work? Complete Overview 2024",
+        "description": "Complete guide to message brokers: what they are, how they work, comparison of RabbitMQ, Kafka, Redis and Qortex MQ",
+        "author": {
+            "@type": "Organization",
+            "name": "Qortex MQ"
+        },
+        "datePublished": "2025-10-10",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Qortex MQ",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://qortexmq.ru/assets/img/logo.svg"
+            }
+        }
+    }
+    </script>
+
+</body>
+</html>

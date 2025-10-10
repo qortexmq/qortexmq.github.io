@@ -29,6 +29,8 @@ Allow: /blog/message-brokers-benchmarks.html
 Allow: /en/blog/
 Allow: /en/blog/qortexmq-vs-kafka.html
 Allow: /en/blog/message-brokers-benchmarks.html
+Allow: /blog/broker-soobshchenij.html
+Allow: /en/blog/message-broker.html
 
 # Sitemaps
 Sitemap: https://qortexmq.ru/sitemap.xml

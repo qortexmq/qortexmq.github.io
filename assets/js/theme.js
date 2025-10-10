@@ -34,7 +34,7 @@
     const logo = logoImg();
     if (logo) {
       const isEn = window.location.pathname.startsWith('/en/');
-      const base = isEn ? '../' : '';
+      const base = isEn ? '/' : '/';
       logo.src = theme === 'dark' ? base + 'assets/img/logo-dark.svg' : base + 'assets/img/logo-light.svg';
     }
   }

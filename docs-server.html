@@ -13,8 +13,14 @@
     <link rel="alternate" hreflang="en" href="https://qortexmq.ru/en/docs-server.html" />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="manifest" href="manifest.json?v=1.0.1" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://mc.yandex.ru data:; script-src 'self' https://www.googletagmanager.com https://mc.yandex.ru 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self'; frame-src https://mc.yandex.ru;" />
-    <link rel="icon" href="favicon.svg?v=1.0.1" type="image/svg+xml" sizes="any" />
+ <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self'; 
+    script-src 'self' 'unsafe-inline' https://mc.yandex.ru https://yastatic.net; 
+    img-src 'self' data: https: http: https://mc.yandex.ru; 
+    style-src 'self' 'unsafe-inline'; 
+    connect-src 'self' https://mc.yandex.ru; 
+    frame-src https://mc.yandex.ru;
+">   <link rel="icon" href="favicon.svg?v=1.0.1" type="image/svg+xml" sizes="any" />
     <script>document.documentElement.classList.add('js')</script>
     <script type="application/ld+json">
     {
@@ -28,6 +34,19 @@
     </script>
   </head>
   <body>
+       <!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104436671', 'ym');
+
+    ym(104436671, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/104436671" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
     <nav class="nav">
       <div class="container nav-inner">
         <a class="brand" href="index.html">
@@ -723,19 +742,7 @@
         gtag('js', new Date()); 
         gtag('config', getGoogleAnalyticsId());
       }
-      
-      // Yandex.Metrika
-      if (typeof isAnalyticsEnabled === 'function' && isAnalyticsEnabled('yandex') && typeof getYandexMetrikaId === 'function' && getYandexMetrikaId()) {
-      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();
-          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-          (window, document, "script", `https://mc.yandex.ru/metrika/tag.js?id=${getYandexMetrikaId()}`, "ym");
-          ym(getYandexMetrikaId(), "init", { ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
-               
-        // Noscript fallback
-        const noscript = document.createElement('noscript');
-        noscript.innerHTML = `<div><img src="https://mc.yandex.ru/watch/${getYandexMetrikaId()}" style="position:absolute; left:-9999px;" alt=""/></div>`;
-        document.body.appendChild(noscript);
-      }
+    
     </script>
   </body>
 </html>

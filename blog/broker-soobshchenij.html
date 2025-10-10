@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ru-RU" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Брокер сообщений: что это такое и как работает? Полный обзор 2024 | Qortex MQ</title>
+    <meta name="description" content="✅ Полное руководство по брокерам сообщений: что это, как работают, сравнение RabbitMQ, Kafka, Redis и Qortex MQ. Выбор оптимального решения для вашего проекта.">
+    <meta name="keywords" content="брокеры сообщений">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+        .article-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+        }
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+        .article-meta {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 12px;
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+        .comparison-table th {
+            background: var(--bg-secondary);
+        }
+        .benchmark-result {
+            background: var(--card);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+        .chart-placeholder {
+            background: var(--bg-secondary);
+            padding: 40px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px dashed var(--border);
+        }
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .pros { color: #10b981; }
+        .cons { color: #ef4444; }
+        code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; }
+        .code-block {
+            background: #1a1a1a;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104436671', 'ym');
+
+    ym(104436671, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/104436671" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+ 
+      <nav class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="index.html">
+          <img class="logo-img" src="../assets/img/logo-dark.svg" alt="QortexMQ" />
+          <span class="name">Qortex<span class="mq">MQ</span></span>
+        </a>
+        <div class="nav-links">
+          <a href="../index.html">Главная</a>
+          <!-- Documentation Dropdown -->
+          <div class="nav-dropdown">
+            <button class="nav-dropdown-toggle" aria-label="Documentation menu">
+              Документация
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="nav-dropdown-menu">
+              <a href="../quickstart.html">🚀 Быстрый старт</a>
+              <a href="../docs-server.html">🐳 Сервер</a>
+              <a href="../docs-sdk.html">📦 QortexMQ.Client</a>
+            </div>
+          </div>
+          <a href="../downloads.html">Загрузки</a>
+          <a href="../license.html">Лицензия</a>
+          <a href="../#contact">Контакты</a>
+          <a href="../blog/">Блог</a>
+          <!-- Language Switcher -->
+          <div class="lang-switcher">
+            <button id="langToggle" class="lang-toggle" aria-label="Переключить язык">
+              <span id="currentLang">RU</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div id="langDropdown" class="lang-dropdown">
+              <a href="/" data-lang="ru">Русский</a>
+              <a href="/en/" data-lang="en">English</a>
+            </div>
+          </div>
+          <div class="theme-switcher">
+            <button id="themeToggle" class="theme-toggle" aria-label="Переключить тему" style="border: 1px solid var(--border); background: var(--card); padding: 6px 10px; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; color: var(--text); font-family: var(--font-ui); font-size: 0.95rem; appearance: none; margin: 0; box-sizing: border-box;">
+              <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+              <span id="themeLabel">Тёмная</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <header class="blog-hero">
+        <div class="container">
+            <h1>Блог QortexMQ</h1>
+            <p>Технические статьи о брокерах сообщений, микросервисах и .NET разработке</p>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 60px 20px;">
+   <article>
+        <header class="article-header">
+            <div class="container">
+                <div class="article-meta">Полный обзор 2025 • 20 мин чтения • Обновлено 2025</div>
+                <h1>Брокер сообщений: что это такое и как работает? Полный обзор 2025</h1>
+                <p>Полное руководство по выбору и использованию брокеров сообщений в современных распределенных системах</p>
+            </div>
+        </header>
+
+        <div class="article-content">
+            <!-- Оглавление -->
+            <nav class="toc">
+                <h3>Содержание</h3>
+                <ul>
+                    <li><a href="#what-is">Что такое брокер сообщений?</a></li>
+                    <li><a href="#why-needed">Зачем нужен брокер сообщений?</a></li>
+                    <li><a href="#how-works">Как работает брокер сообщений?</a></li>
+                    <li><a href="#patterns">Паттерны работы</a></li>
+                    <li><a href="#comparison">Сравнение брокеров сообщений</a></li>
+                    <li><a href="#criteria">Критерии выбора</a></li>
+                    <li><a href="#qortex">Qortex MQ — современное решение</a></li>
+                </ul>
+            </nav>
+
+            <!-- Основной контент -->
+            <section id="what-is" class="content-section">
+                <h2 class="section-title">Что такое брокер сообщений?</h2>
+                <p><strong>Брокер сообщений (Message Broker)</strong> — это промежуточное ПО (middleware), которое обеспечивает обмен сообщениями между различными компонентами распределенной системы. Представьте его как "почтовое отделение" для ваших приложений: один сервис отправляет сообщение в брокер, а другой сервис забирает его тогда, когда будет готов.</p>
+                
+                <p>Основная задача брокера сообщений — <strong>развязать</strong> (decouple) компоненты системы. Отправителю не нужно знать, где находится получатель, активен ли он сейчас, и как его найти. Вся логика маршрутизации, буферизации и доставки лежит на брокере.</p>
+            </section>
+
+            <section id="why-needed" class="content-section">
+                <h2 class="section-title">Зачем нужен брокер сообщений? 5 ключевых причин</h2>
+                
+                <h3>1. Асинхронная обработка</h3>
+                <p>Сервис-отправитель не блокируется, ожидая ответа от сервиса-получателя. Он просто "кидает" сообщение в брокер и продолжает работу. Это значительно повышает отзывчивость системы.</p>
+
+                <h3>2. Масштабируемость</h3>
+                <p>Брокер сообщений действует как буфер между быстрыми и медленными потребителями. Вы можете увеличивать количество обработчиков сообщений, не меняя код отправителя.</p>
+
+                <h3>3. Надежность и отказоустойчивость</h3>
+                <p>Большинство брокеров поддерживают персистентность (сохранение сообщений на диск). Если потребитель упал, сообщения не потеряются и будут доставлены после его восстановления.</p>
+
+                <h3>4. Гибкая маршрутизация</h3>
+                <p>Сложные сценарии маршрутизации (одно сообщение — многим получателям, фильтрация, трансформация) легко реализуются через брокер.</p>
+
+                <h3>5. Интеграция гетерогенных систем</h3>
+                <p>Брокер сообщений позволяет связать системы, написанные на разных языках программирования и работающие на разных платформах.</p>
+            </section>
+
+            <section id="how-works" class="content-section">
+                <h2 class="section-title">Как работает брокер сообщений? Базовая архитектура</h2>
+                
+                <div class="architecture-diagram">
+                    <!-- Здесь должна быть схема архитектуры -->
+                    <p>[Схема архитектуры брокера сообщений]</p>
+                    <p><small>Producer → Message Broker → Consumer</small></p>
+                </div>
+                
+                <p>Рассмотрим основную архитектуру на примере простейшего сценария:</p>
+                
+                <ol>
+                    <li><strong>Producer (Продюсер/Издатель)</strong> — компонент, который создает и отправляет сообщения в брокер.</li>
+                    <li><strong>Message Broker (Брокер сообщений)</strong> — принимает сообщения, хранит их и отвечает за маршрутизацию.</li>
+                    <li><strong>Consumer (Консьюмер/Потребитель)</strong> — компонент, который получает и обрабатывает сообщения из брокера.</li>
+                </ol>
+            </section>
+
+            <section id="patterns" class="content-section">
+                <h2 class="section-title">Паттерны работы с брокером сообщений</h2>
+                
+                <h3>Point-to-Point (Очередь сообщений)</h3>
+                <p>Сообщение отправляется в конкретную очередь и обрабатывается <strong>одним</strong> из доступных потребителей. Идеально для распределения задач между воркерами.</p>
+                
+                <h3>Publish/Subscribe (Pub/Sub)</h3>
+                <p>Сообщение публикуется в топик, и все подписчики этого топика получают копию сообщения. Отлично подходит для событийных архитектур и уведомлений.</p>
+                
+                <h3>Request/Reply</h3>
+                <p>Временные очереди для реализации синхронного взаимодействия через асинхронную систему сообщений.</p>
+            </section>
+
+            <section id="comparison" class="content-section">
+                <h2 class="section-title">Сравнение брокеров сообщений 2024: RabbitMQ vs Kafka vs Redis vs Qortex MQ</h2>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Параметр</th>
+                            <th>RabbitMQ</th>
+                            <th>Apache Kafka</th>
+                            <th>Redis Pub/Sub</th>
+                            <th><strong>Qortex MQ</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Основная модель</strong></td>
+                            <td>Очереди сообщений, AMQP</td>
+                            <td>Лог событий, потоки</td>
+                            <td>Pub/Sub, очереди</td>
+                            <td>Универсальная (очереди + потоки)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Производительность</strong></td>
+                            <td>Средняя (~50K msg/sec)</td>
+                            <td>Очень высокая (~1M+ msg/sec)</td>
+                            <td>Высокая (~200K msg/sec)</td>
+                            <td><span class="feature-badge">Очень высокая</span> (~500K+ msg/sec)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Персистентность</strong></td>
+                            <td>Да (на диск)</td>
+                            <td>Да (реплицируемый лог)</td>
+                            <td>Ограниченная (AOF)</td>
+                            <td><span class="feature-badge">Да</span> (высокооптимизированная)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Сложность настройки</strong></td>
+                            <td>Средняя</td>
+                            <td>Высокая</td>
+                            <td>Низкая</td>
+                            <td><span class="feature-badge">Низкая</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Поддержка кластеризации</strong></td>
+                            <td>Да</td>
+                            <td>Да</td>
+                            <td>Да</td>
+                            <td><span class="feature-badge">Нет</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Лучший сценарий использования</strong></td>
+                            <td>Сложная маршрутизация, задачи бизнес-логики</td>
+                            <td>Потоки событий, аналитика в реальном времени</td>
+                            <td>Кэширование, реальное время, простые очереди</td>
+                            <td><span class="feature-badge">Универсальный</span>: микросервисы, IoT, высоконагруженные системы</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="criteria" class="content-section">
+                <h2 class="section-title">Как выбрать брокер сообщений? Ключевые критерии</h2>
+                
+                <ul>
+                    <li><strong>Производительность:</strong> Сколько сообщений в секунду вам нужно?</li>
+                    <li><strong>Задержки (latency):</strong> Насколько критичны задержки для вашего приложения?</li>
+                    <li><strong>Надежность доставки:</strong> Нужна ли гарантированная доставка?</li>
+                    <li><strong>Масштабируемость:</strong> Как система ведет себя при увеличении нагрузки?</li>
+                    <li><strong>Экосистема и сообщество:</strong> Достаточно ли документации и библиотек?</li>
+                    <li><strong>Операционные расходы:</strong> Насколько сложно поддерживать и мониторить?</li>
+                </ul>
+            </section>
+
+            <section id="qortex" class="content-section">
+                <h2 class="section-title">Qortex MQ: современный брокер сообщений для высоконагруженных систем</h2>
+                
+                <p><strong>Qortex MQ</strong> — это брокер сообщений нового поколения, созданный с учетом современных требований к производительности и простоте использования.</p>
+                
+                <h3>Ключевые преимущества Qortex MQ:</h3>
+                <ul>
+                    <li><strong>Высокая производительность:</strong> Оптимизированное ядро на Go</li>
+                    <li><strong>Простота развертывания:</strong> Единственный бинарный файл без зависимостей</li>
+                    <li><strong>Автоматическая кластеризация:</strong> Встроенная поддержка отказоустойчивых кластеров</li>
+                    <li><strong>Гибкая модель доставки:</strong> Поддержка очередей и потоков событий</li>
+                    <li><strong>Открытый исходный код:</strong> Прозрачность разработки</li>
+                </ul>
+            </section>
+
+            <!-- CTA секция -->
+            <div class="cta-section">
+                <h3>Готовы попробовать Qortex MQ?</h3>
+                <p>Начните работу с современным брокером сообщений уже сегодня</p>
+                <div class="cta-buttons">
+                    <a href="/quickstart.html" class="btn btn-primary">📚 Быстрый старт</a>
+                    <a href="/downloads.html" class="btn btn-secondary">⭐ Скачать</a>
+                </div>
+            </div>
+    
+        </div>
+    </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            © <span id="year"></span> QortexMQ. Блог о брокерах сообщений и .NET разработке.
+        </div>
+    </footer>
+
+        <!-- Schema.org разметка -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Брокер сообщений: что это такое и как работает? Полный обзор 2024",
+        "description": "Полное руководство по брокерам сообщений: что это, как работают, сравнение RabbitMQ, Kafka, Redis и Qortex MQ",
+        "author": {
+            "@type": "Organization",
+            "name": "Qortex MQ"
+        },
+        "datePublished": "2025-10-10",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Qortex MQ",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://qortexmq.ru/assets/img/logo.svg"
+            }
+        }
+    }
+    </script>
+
+</body>
+</html>
