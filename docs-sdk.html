@@ -34,14 +34,7 @@
     <meta name="revisit-after" content="7 days" />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="manifest" href="manifest.json?v=1.0.1" />
-<meta http-equiv="Content-Security-Policy" content="
-    default-src 'self'; 
-    script-src 'self' 'unsafe-inline' https://mc.yandex.ru https://yastatic.net; 
-    img-src 'self' data: https: http: https://mc.yandex.ru; 
-    style-src 'self' 'unsafe-inline'; 
-    connect-src 'self' https://mc.yandex.ru; 
-    frame-src https://mc.yandex.ru;
-">    <link rel="icon" href="favicon.svg?v=1.0.1" type="image/svg+xml" sizes="any" />
+    <link rel="icon" href="favicon.svg?v=1.0.1" type="image/svg+xml" sizes="any" />
     <script>document.documentElement.classList.add('js')</script>
     <script type="application/ld+json">
     {
@@ -89,6 +82,15 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/104436671" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+ <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TQS6R1JNBQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TQS6R1JNBQ');
+</script>
     <nav class="nav">
       <div class="container nav-inner">
         <a class="brand" href="index.html">
@@ -1053,22 +1055,6 @@
         window.addEventListener('scroll', updateActiveSection);
         updateActiveSection(); // Вызвать при загрузке
       });
-    </script>
-
-    <!-- Analytics - IDs берутся из analytics.js -->
-    <script>
-      // Google Analytics
-      if (typeof isAnalyticsEnabled === 'function' && isAnalyticsEnabled('google') && typeof getGoogleAnalyticsId === 'function' && getGoogleAnalyticsId()) {
-        const gaScript = document.createElement('script');
-        gaScript.async = true;
-        gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${getGoogleAnalyticsId()}`;
-        document.head.appendChild(gaScript);
-        
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);} 
-        gtag('js', new Date()); 
-        gtag('config', getGoogleAnalyticsId());
-      }
     </script>
   </body>
 </html>
